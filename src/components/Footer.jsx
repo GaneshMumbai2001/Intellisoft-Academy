@@ -1,11 +1,9 @@
 import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <hr />
-      <div className="footer-content">
+    <div className="fixed bottom-0  w-full bg-[#E5E7EB] p-4">
+      <div className="flex justify-between text-[#4B5563] flex-col gap-2 items-center">
         <p>© 2025 Intellisoft Academy. All Rights Reserved</p>
         <span>Privacy Policy | Terms of Service</span>
       </div>
