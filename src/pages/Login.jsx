@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default function Login() {
-  return (
+  return (    
     <div className='flex justify-center  pt-10 '>
       <div className='w-1/2 bg-white flex flex-col gap-10 p-10 rounded-lg shadow-md'>
         <p className='text-2xl font-bold text-[#374151]'>Login</p>
@@ -12,6 +12,10 @@ export default function Login() {
         </div>
         <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>Login</button>
         <p className='text-sm text-gray-500'>Don't have an account? <Link to='/register' className='text-blue-500'>Register</Link></p>
+        <div className='flex justify-center'>
+          <img src='/logo.png' alt='Logo' className='w-10 h-10'/>
+
+        </div>
 
       </div>
     </div>

@@ -1,56 +1,68 @@
-import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import ProgressBar from "../components/ProgressBar";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const [discussion, setDiscussion] = useState("");
-
-  const handlePost = () => {
-    alert(discussion);
-  };
+  const features = [
+    {
+      title: "Expert Instructors",
+      description: "Learn from industry professionals with years of experience",
+      icon: "👨‍🏫"
+    },
+    {
+      title: "Flexible Learning",
+      description: "Study at your own pace with lifetime access to courses",
+      icon: "⏰"
+    },
+    {
+      title: "Interactive Content",
+      description: "Engage with hands-on projects and real-world applications",
+      icon: "💻"
+    }
+  ];
 
   return (
-    <div className="flex p-10 pb-32 bg-[#F5F5F5] min-h-screen gap-10">
-      <div className="w-1/4">
-        <Sidebar />
-      </div>
-      <div className="w-3/4 bg-white flex flex-col gap-5 rounded-md shadow-md p-5">
-        <h1 className="text-2xl font-bold">Welcome to JavaScript Course</h1>
-        <p className="text-base text-[#374151]">
-          This course provides an in-depth introduction to JavaScript, covering
-          the fundamentals and advanced topics.
-        </p>
-        <p className="text-2xl font-bold mt-5">Progress Tracking</p>
-
-        <div className="flex mt-3 justify-between items-center">
-          <p className="text-base text-[#374151]">
-            Lesson 1: Introduction to JavaScript
-          </p>
-          <p className="text-base text-[#374151]">Completed</p>
-          <p className="text-base text-[#374151]">10/10</p>
-        </div>
-        <ProgressBar progress={100} />
-
-    
-        <div className="flex mt-3 justify-between items-center">
-          <p className="text-base text-[#374151]">
-            Lesson 2: Variables and Data Types
-          </p>
-          <p className="text-base text-[#374151]">Completed</p>
-          <p className="text-base text-[#374151]">5/10</p>
-        </div>
-        <ProgressBar progress={50} />
-        <div className=" mt-3 flex flex-col gap-5">
-          <p className="text-2xl font-bold text-[#374151]">Discussion Forum</p>
-          <textarea value={discussion} onChange={(e) => setDiscussion(e.target.value)} className="w-full h-40 border border-gray-300 rounded-lg p-2"></textarea>
-          <div className="flex justify-end">
-            <button onClick={handlePost} className="bg-blue-500 text-white px-4 py-2 rounded-md">
-              Post
-            </button>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-blue-600 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-6">Welcome to Intellisoft Academy</h1>
+            <p className="text-xl mb-8">Empower your future with cutting-edge tech education</p>
+            <Link to="/courses">
+              <button className="bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50">
+                Explore Courses
+              </button>
+            </Link>
           </div>
         </div>
       </div>
-     
+
+      {/* Features Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose Us</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Learning?</h2>
+          <p className="text-xl text-gray-600 mb-8">Join thousands of students already learning with us</p>
+          <Link to="/register">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700">
+              Get Started
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
