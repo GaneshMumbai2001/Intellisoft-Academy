@@ -1,22 +1,40 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 export const CoursesHeader = () => {
   const totalCourses = 21;
   const loadedCourses = 6;
   
   return (
-    <div className="py-20 w-full h-100 flex justify-center bg-gradient-to-b from-blue-400 to-purple-400">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="py-20 w-full h-100 flex justify-center bg-gradient-to-b from-blue-400 to-purple-400"
+    >
       <section className="w-full lg:max-w-6xl text-white">
         <nav className="text-sm text-gray-200">Home . All Courses</nav>
         
-        <div className="flex items-center gap-3 my-4">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex items-center gap-3 my-4"
+        >
           <h1 className="text-3xl font-bold">All Courses</h1>
           <span className="text-sm bg-white/20 text-white px-3 py-1 rounded-full">
             {totalCourses} Courses
           </span>
-        </div>
+        </motion.div>
         
         <p className="text-gray-100 text-lg">Courses that help beginner designers become true unicorns.</p>
         
-        <div className="flex justify-between items-center mt-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-between items-center mt-6"
+        >
           <div className="flex items-center gap-4">
           <div className="bg-[#ffffff7f] px-5 py-2 rounded-full">
             <button className="px-5 py-1 bg-white text-gray-800 rounded-full">Grid</button>
@@ -35,9 +53,9 @@ export const CoursesHeader = () => {
             />
             <button className="px-4 py-2 bg-white text-gray-800 font-bold rounded-full">Filter</button>
           </div>
-        </div>
+        </motion.div>
       </section>
-      
-    </div>
+    </motion.div>
   );
 };
+

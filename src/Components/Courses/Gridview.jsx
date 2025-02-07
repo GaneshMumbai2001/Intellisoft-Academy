@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const GridView = () => {
   const courses = [
@@ -20,111 +21,115 @@ const GridView = () => {
     },
     {
       imageLink: "/courses/c2.png",
-      reviews: 10,
-      courseName: "Full Stack Web Development",
-      totalLessons: 20,
-      enrolledStudents: 100,
+      reviews: 4.8,
+      courseName: "JavaScript Essentials",
+      totalLessons: 10,
+      enrolledStudents: 45,
       description:
-        "Learn Full Stack Development with React, Node.js, and MongoDB.",
-      price: "249.00",
-      curPrice: "120.00",
+        "Learn the fundamentals of JavaScript with practical coding exercises.",
+      price: "100.00",
+      curPrice: "60.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Daniel",
-        field: "Software Engineering",
+        name: "John Doe",
+        field: "Web Development",
       },
     },
     {
       imageLink: "/courses/c3.png",
-      reviews: 7,
-      courseName: "App Development",
+      reviews: 4.9,
+      courseName: "Python for Beginners",
       totalLessons: 15,
-      enrolledStudents: 80,
+      enrolledStudents: 60,
       description:
-        "Build 100 projects in 100 days and master mobile app development.",
-      price: "99.00",
-      curPrice: "49.99",
+        "A complete guide to learning Python from scratch with real-world projects.",
+      price: "110.00",
+      curPrice: "65.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Sophie",
-        field: "Mobile Development",
+        name: "Alice Smith",
+        field: "Data Science",
       },
     },
     {
       imageLink: "/courses/c4.png",
-      reviews: 6,
-      courseName: "UI/UX Design",
-      totalLessons: 18,
-      enrolledStudents: 70,
+      reviews: 4.7,
+      courseName: "UI/UX Design Basics",
+      totalLessons: 8,
+      enrolledStudents: 40,
       description:
-        "Learn how to design user-friendly and modern UI/UX experiences.",
-      price: "150.00",
-      curPrice: "85.00",
+        "Understand the principles of UI/UX design and build user-friendly applications.",
+      price: "90.00",
+      curPrice: "55.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Alex",
+        name: "David Wilson",
         field: "Design",
       },
     },
     {
       imageLink: "/courses/c5.png",
-      reviews: 8,
-      courseName: "Cyber Security Basics",
-      totalLessons: 14,
-      enrolledStudents: 90,
+      reviews: 5,
+      courseName: "Machine Learning A-Z",
+      totalLessons: 20,
+      enrolledStudents: 75,
       description:
-        "Understand the fundamentals of cybersecurity and ethical hacking.",
-      price: "200.00",
-      curPrice: "99.00",
+        "Dive deep into machine learning concepts and build AI models from scratch.",
+      price: "150.00",
+      curPrice: "80.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Olivia",
-        field: "Cyber Security",
+        name: "Sophia Lee",
+        field: "AI & ML",
       },
     },
     {
       imageLink: "/courses/c6.png",
-      reviews: 9,
-      courseName: "Data Science with Python",
-      totalLessons: 22,
-      enrolledStudents: 120,
+      reviews: 4.6,
+      courseName: "Digital Marketing 101",
+      totalLessons: 14,
+      enrolledStudents: 55,
       description:
-        "Master Data Science using Python with real-world applications.",
-      price: "299.00",
-      curPrice: "150.00",
+        "Learn the fundamentals of digital marketing and grow your online presence.",
+      price: "95.00",
+      curPrice: "50.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Ethan",
-        field: "Data Science",
+        name: "Michael Brown",
+        field: "Marketing",
       },
     },
   ];
 
   return (
     <div className="py-10 flex flex-col items-center relative bottom-30">
-      <div className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <motion.div 
+        className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         {courses.map((course, index) => (
-          <div key={index} className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105">
-            {/* Course Image */}
+          <motion.div 
+            key={index} 
+            className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
             <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
-            
-            {/* Course Info */}
             <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
             <p className="text-sm text-gray-600 my-2">{course.description}</p>
-
-            {/* Lessons & Students */}
             <div className="flex justify-between text-sm text-gray-500">
               <span>{course.totalLessons} Lessons</span>
               <span>{course.enrolledStudents} Students</span>
             </div>
-
-            {/* Instructor Info */}
             <div className="flex items-center mt-3">
               <img className="h-10 w-10 rounded-full mr-3" src={course.instructor.imageLink} alt={course.instructor.name} />
               <span className="text-sm text-gray-700">By {course.instructor.name} in {course.instructor.field}</span>
             </div>
-
-            {/* Price & Button */}
             <div className="flex justify-between items-center mt-4">
               <div className="text-lg font-bold text-blue-600">
                 <s className="text-gray-400 text-sm">${course.price}</s> ${course.curPrice}
@@ -133,18 +138,107 @@ const GridView = () => {
                 Add to cart
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-
-      {/* Centered Button */}
-      <div className="flex justify-center mt-10">
+      </motion.div>
+      <motion.div 
+        className="flex justify-center mt-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         <a href="#" className="text-[11.72px] px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md">
           More About Us
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 export default GridView;
+
+
+
+
+
+// import React from "react";
+// import { motion } from "framer-motion";
+
+// const GridView = () => {
+//   const courses = [
+//     {
+//       imageLink: "/courses/c1.png",
+//       reviews: 5,
+//       courseName: "React Mastery",
+//       totalLessons: 12,
+//       enrolledStudents: 50,
+//       description:
+//         "Master React from basics to advanced concepts with hands-on projects.",
+//       price: "120.00",
+//       curPrice: "70.00",
+//       instructor: {
+//         imageLink: "/courses/r1.png",
+//         name: "Monika",
+//         field: "IT",
+//       },
+//     },
+//     // Add other courses here...
+//   ];
+
+//   return (
+//     <div className="py-10 flex flex-col items-center relative bottom-30">
+//       <motion.div 
+//         className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+//         initial={{ opacity: 0, y: 50 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         viewport={{ once: true }}
+//       >
+//         {courses.map((course, index) => (
+//           <motion.div 
+//             key={index} 
+//             className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105"
+//             initial={{ opacity: 0, scale: 0.9 }}
+//             whileInView={{ opacity: 1, scale: 1 }}
+//             transition={{ duration: 0.4, delay: index * 0.1 }}
+//             viewport={{ once: true }}
+//           >
+//             <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
+//             <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
+//             <p className="text-sm text-gray-600 my-2">{course.description}</p>
+//             <div className="flex justify-between text-sm text-gray-500">
+//               <span>{course.totalLessons} Lessons</span>
+//               <span>{course.enrolledStudents} Students</span>
+//             </div>
+//             <div className="flex items-center mt-3">
+//               <img className="h-10 w-10 rounded-full mr-3" src={course.instructor.imageLink} alt={course.instructor.name} />
+//               <span className="text-sm text-gray-700">By {course.instructor.name} in {course.instructor.field}</span>
+//             </div>
+//             <div className="flex justify-between items-center mt-4">
+//               <div className="text-lg font-bold text-blue-600">
+//                 <s className="text-gray-400 text-sm">${course.price}</s> ${course.curPrice}
+//               </div>
+//               <button className="bg-white-600 text-black px-4 py-2 shadow rounded-lg text-sm hover:bg-black-100">
+//                 Add to cart
+//               </button>
+//             </div>
+//           </motion.div>
+//         ))}
+//       </motion.div>
+//       <motion.div 
+//         className="flex justify-center mt-10"
+//         initial={{ opacity: 0, y: 20 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         viewport={{ once: true }}
+//       >
+//         <a href="#" className="text-[11.72px] px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md">
+//           More About Us
+//         </a>
+//       </motion.div>
+//     </div>
+//   );
+// };
+
+// export default GridView;
