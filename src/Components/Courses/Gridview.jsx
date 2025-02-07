@@ -1,138 +1,150 @@
-function GridView() {
+import React from "react";
+
+const GridView = () => {
   const courses = [
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c1.png",
+      reviews: 5,
+      courseName: "React Mastery",
+      totalLessons: 12,
+      enrolledStudents: 50,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Master React from basics to advanced concepts with hands-on projects.",
+      price: "120.00",
+      curPrice: "70.00",
       instructor: {
-        imageLink: "",
+        imageLink: "/courses/r1.png",
         name: "Monika",
         field: "IT",
       },
     },
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c2.png",
+      reviews: 10,
+      courseName: "Full Stack Web Development",
+      totalLessons: 20,
+      enrolledStudents: 100,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Learn Full Stack Development with React, Node.js, and MongoDB.",
+      price: "249.00",
+      curPrice: "120.00",
       instructor: {
-        imageLink: "",
-        name: "Monika",
-        field: "IT",
+        imageLink: "/courses/r1.png",
+        name: "Daniel",
+        field: "Software Engineering",
       },
     },
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c3.png",
+      reviews: 7,
+      courseName: "App Development",
+      totalLessons: 15,
+      enrolledStudents: 80,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Build 100 projects in 100 days and master mobile app development.",
+      price: "99.00",
+      curPrice: "49.99",
       instructor: {
-        imageLink: "",
-        name: "Monika",
-        field: "IT",
+        imageLink: "/courses/r1.png",
+        name: "Sophie",
+        field: "Mobile Development",
       },
     },
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c4.png",
+      reviews: 6,
+      courseName: "UI/UX Design",
+      totalLessons: 18,
+      enrolledStudents: 70,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Learn how to design user-friendly and modern UI/UX experiences.",
+      price: "150.00",
+      curPrice: "85.00",
       instructor: {
-        imageLink: "",
-        name: "Monika",
-        field: "IT",
+        imageLink: "/courses/r1.png",
+        name: "Alex",
+        field: "Design",
       },
     },
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c5.png",
+      reviews: 8,
+      courseName: "Cyber Security Basics",
+      totalLessons: 14,
+      enrolledStudents: 90,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Understand the fundamentals of cybersecurity and ethical hacking.",
+      price: "200.00",
+      curPrice: "99.00",
       instructor: {
-        imageLink: "",
-        name: "Monika",
-        field: "IT",
+        imageLink: "/courses/r1.png",
+        name: "Olivia",
+        field: "Cyber Security",
       },
     },
     {
-      imageLink: "",
-      reviews: 1,
-      courseName: "React",
-      totalLessons: 10,
-      enrolledStudents: 1,
+      imageLink: "/courses/c6.png",
+      reviews: 9,
+      courseName: "Data Science with Python",
+      totalLessons: 22,
+      enrolledStudents: 120,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde dolor voluptas iure dicta quos voluptatum deleniti quaerat cupiditate quo fugit quasi molestiae error culpa esse libero, veritatis accusamus recusandae dolorem optio perferendis! Sed, repudiandae porro.",
-      price: "67",
-      curPrice: "34.2",
+        "Master Data Science using Python with real-world applications.",
+      price: "299.00",
+      curPrice: "150.00",
       instructor: {
-        imageLink: "",
-        name: "Monika",
-        field: "IT",
+        imageLink: "/courses/r1.png",
+        name: "Ethan",
+        field: "Data Science",
       },
     },
   ];
-  return (
-    <div className="flex py-10 justify-center">
-      <div className="w-full lg:max-w-6xl grid grid-cols-1 md:grid-cols-2bg-white gap-16 lg:grid-cols-3">
-        {courses.map((course) => (
-          <>
-            <section className=" bg-white shadow-2xl p-6 rounded-2xl ">
-              <img className=" w-full" src="/courses/course.png" alt="image" />
-              <section>
-                <span>{course.reviews} reviews</span>
-              </section>
-              <section>{course.courseName}</section>
-              <section className="light text-sm fex justify-between">
-                <section>{course.totalLessons} Lessons</section>
-                <section>{course.enrolledStudents} Students</section>
-              </section>
-              <section>{course.description}</section>
-              <section>
-                <img src="" className="rounded h-14" alt="" />
-                <span>
-                  By {course?.instructor?.name} in {course?.instructor?.field}
-                </span>
-              </section>
 
-              <section className="flex justify-between">
-                <section>
-                  <s>${course.price} </s>
-                  <span className="text-xl"> ${course.curPrice}</span>
-                </section>
-                <section className="cursor-pointer">Add to cart</section>
-              </section>
-            </section>
-          </>
+  return (
+    <div className="py-10 flex flex-col items-center relative bottom-30">
+      <div className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {courses.map((course, index) => (
+          <div key={index} className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105">
+            {/* Course Image */}
+            <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
+            
+            {/* Course Info */}
+            <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
+            <p className="text-sm text-gray-600 my-2">{course.description}</p>
+
+            {/* Lessons & Students */}
+            <div className="flex justify-between text-sm text-gray-500">
+              <span>{course.totalLessons} Lessons</span>
+              <span>{course.enrolledStudents} Students</span>
+            </div>
+
+            {/* Instructor Info */}
+            <div className="flex items-center mt-3">
+              <img className="h-10 w-10 rounded-full mr-3" src={course.instructor.imageLink} alt={course.instructor.name} />
+              <span className="text-sm text-gray-700">By {course.instructor.name} in {course.instructor.field}</span>
+            </div>
+
+            {/* Price & Button */}
+            <div className="flex justify-between items-center mt-4">
+              <div className="text-lg font-bold text-blue-600">
+                <s className="text-gray-400 text-sm">${course.price}</s> ${course.curPrice}
+              </div>
+              <button className="bg-white-600 text-black px-4 py-2 shadow rounded-lg text-sm hover:bg-black-100">
+                Add to cart
+              </button>
+            </div>
+          </div>
         ))}
+      </div>
+
+      {/* Centered Button */}
+      <div className="flex justify-center mt-10">
+        <a href="#" className="text-[11.72px] px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md">
+          More About Us
+        </a>
       </div>
     </div>
   );
-}
+};
 
 export default GridView;
