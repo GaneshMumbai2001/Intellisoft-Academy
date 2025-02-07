@@ -1,4 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
 
 const NewsletterSection = ({
   title = "Subscribe Our Newsletter",
@@ -10,35 +21,48 @@ const NewsletterSection = ({
   ]
 }) => {
   return (
-  
-    <div className="newsletter bg-blue-700 text-white text-center py-10 ">
+    <motion.div 
+      className="newsletter bg-blue-700 text-white text-center py-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <div className="newsletter-content">
-      <div className="btn-update">
-        <button className="update text-[9.84px] font-bold uppercase tracking-wide px-[15px] py-[8px] rounded-2xl bg-[#04040437]">GET LATEST HISTUDY UPDATE</button>
-      </div>
-        <h2 className="newsletter-heading text-[32.23px] font-bold mb-4">{title}</h2>
-        <div class="flex justify-center items-center">
-              <p class="description w-1/2 text-center text-[13.39px]">{description}</p>
-        </div>
-        <p className="disclaimer text-[10.5px] mb-10 text-gray-300">{disclaimer}</p>
+        <motion.div className="btn-update" variants={fadeInLeft}>
+          <button className="update text-[9.84px] font-bold uppercase tracking-wide px-[15px] py-[8px] rounded-2xl bg-[#04040437]">
+            GET LATEST HISTUDY UPDATE
+          </button>
+        </motion.div>
+        
+        <motion.h2 className="newsletter-heading text-[32.23px] font-bold mb-4" variants={fadeInUp}>
+          {title}
+        </motion.h2>
+        
+        <motion.div className="flex justify-center items-center" variants={fadeInUp}>
+          <p className="description w-1/2 text-center text-[13.39px]">{description}</p>
+        </motion.div>
+        
+        <motion.p className="disclaimer text-[10.5px] mb-10 text-gray-300" variants={fadeInUp}>
+          {disclaimer}
+        </motion.p>
+        
         <div className="stats flex justify-center gap-12 mt-8 flex-wrap">
-          <div className="stat text-center max-w-xs">
+          <motion.div className="stat text-center max-w-xs" variants={fadeInUp}>
             <h3 className="count text-[35.45px] font-bold">{stats[0].count}</h3>
             <p className="stat-text text-[14.53px] mt-3 font-semibold">{stats[0].label}</p>
-            <p className="sub-text  text-[12px] mt-1">{stats[0].subText}</p>
-          </div>
+            <p className="sub-text text-[12px] mt-1">{stats[0].subText}</p>
+          </motion.div>
           
-          {/* Vertical line separator between the stats */}
           <div className="line-cen-news bg-gray-500 opacity-50 w-px h-32 mx-10 hidden sm:block"></div>
-
-          <div className="stat text-center max-w-xs">
+          
+          <motion.div className="stat text-center max-w-xs" variants={fadeInUp}>
             <h3 className="count text-[35.45px] font-bold">{stats[1].count}</h3>
             <p className="stat-text text-[14.53px] mt-3 font-semibold">{stats[1].label}</p>
             <p className="sub-text text-[12px] mt-1">{stats[1].subText}</p>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
