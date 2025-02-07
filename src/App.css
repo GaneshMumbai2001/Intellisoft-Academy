@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+
+/* aboutus */
+
+
+@media (max-width: 1200px) {
+
+
+
+  .menimg {
+     max-width: 0px; 
+     height: 0px;
+
+ }
+
+
+}
+
+
+@media (max-width: 766px) {
+  .menimg {
+      max-width: 100%;
+      height: 160px;
+  }
+}
+
+@media (max-width: 566px) {
+
+  .menimg {
+      max-width:130px;
+      height:80px;
+
+  }
+  .women_pink {
+      max-width: 140px;
+
+  }
+  .girl_pen{
+      max-width:140px;
+
+  }
+
+}
+
+@media (max-width: 426px) {
+
+  .menimg {
+      max-width:80px;
+      height:80px;
+          position: relative;
+          top:0px;
+          bottom:5px;
+  }
+  .women_pink {
+      max-width: 100px;
+
+  }
+  .girl_pen{
+      max-width:100px;
+
+  }
+
+} 
+
+
