@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-
- export const LoginForm= () => {
+export const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -23,8 +23,20 @@ import { useState } from "react";
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
-      <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
-        <h2 className="text-2xl font-semibold text-gray-900 text-center">Login</h2>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg"
+      >
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-2xl font-semibold text-gray-900 text-center"
+        >
+          Login
+        </motion.h2>
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Username or Email Address</label>
@@ -34,7 +46,7 @@ import { useState } from "react";
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
             />
           </div>
           <div className="mb-4">
@@ -45,7 +57,7 @@ import { useState } from "react";
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
             />
           </div>
           <div className="flex justify-between items-center mb-4">
@@ -59,17 +71,20 @@ import { useState } from "react";
               />
               Remember me
             </label>
-            <a href="#" className="text-blue-500 hover:underline">Lost your password?</a>
+            <a href="#" className="text-blue-500 hover:underline">
+              Lost your password?
+            </a>
           </div>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:opacity-90"
+            className="w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:opacity-90 transition-all"
           >
             Log in
-          </button>
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
-

@@ -8,10 +8,8 @@ import Blog from "./Pages/Blog.jsx";
 import Contact from "./Pages/Contact.jsx";
 import Course from "./Pages/Course.jsx";
 import Home from "./Pages/Home.jsx";
-import SignUpAdmin from "./Pages/SignUpAdmin.jsx";
-import SignUpInstructor from "./Pages/SignUpInstructor.jsx";
-import SignUpUser from "./Pages/SignUpUser.jsx";
-import LoginFormAll from "./Pages/LoginFormAll.jsx";
+import SignUp from "./Pages/SignUp.jsx";
+import LoginForm from "./Pages/LoginFormAll.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +21,8 @@ const router = createBrowserRouter([
       { path: "/blog", element: <Blog /> },
       { path: "/contact", element: <Contact /> },
       { path: "/courses", element: <Course /> },
-      { path: "/signup/admin", element: <SignUpAdmin /> },
-      { path: "/signup/instructor", element: <SignUpInstructor /> },
-      { path: "/signup/user", element: <SignUpUser /> },
-      { path: "/login", element: <LoginFormAll /> },
+      { path: "/signup", element: <SignUp /> },
+      { path: "/login", element: <LoginForm /> },
     ],
   },
 ]);
