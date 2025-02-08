@@ -2,19 +2,13 @@ import React from "react";
 import GridView from "../Components/Courses/Gridview";
 import  CoursesHeader  from "../Components/Courses/CoursesHeader";
 
-
 function Course() {
   return (
     <div>
-      <div>
-        <CoursesHeader />
-      </div>
-      <div>
-        <GridView />
-      </div>
+      <CoursesHeader/>
+      <GridView />
     </div>
   );
 }
 
 export default Course;
-
