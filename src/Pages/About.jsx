@@ -27,7 +27,4 @@ function About() {
 
 export default About;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Hemanthkumar50
