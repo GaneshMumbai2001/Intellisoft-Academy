@@ -40,7 +40,7 @@ const Footer = () => {
       <div className="flex flex-wrap justify-center w-full gap-24 py-10">
         <div className="flex flex-col items-start max-w-[301px] text-center">
           <img
-            src="public/navbar/logo.png"
+            src="public/navbar/intellisoft.png"
             alt="Company Logo"
             className="w-[114px] object-contain"
           />
