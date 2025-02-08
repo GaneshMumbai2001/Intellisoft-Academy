@@ -38,7 +38,7 @@ const AboutUsperson = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="flex justify-center items-center m-10"
+      className="flex menimg justify-center items-center m-10"
     >
       <div className="flex flex-wrap bg-white rounded-lg w-full max-w-6xl sm:max-w-8xl">
         {/* Left Side: Images */}

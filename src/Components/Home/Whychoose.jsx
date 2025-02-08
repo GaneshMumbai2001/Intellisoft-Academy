@@ -66,7 +66,7 @@ const WhyChoose = () => {
           {whyChooseData.map((item) => (
             <motion.div 
               key={item.id} 
-              className="w-[250px] sm:w-[240px] md:w-[270px]"
+              className="w-[250px] sm:w-[240px] md:w-[235px]"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: item.id * 0.2 }}
@@ -79,7 +79,7 @@ const WhyChoose = () => {
                 <div className={`w-[3px] ${item.lineHeight} rounded-full bg-[#2F57EF] relative ${item.lineBottom}`}></div>
               </div>
               <div className="bg-white relative bottom-7 w-full h-full flex flex-col items-center justify-center text-center rounded-lg shadow-lg border-b-5 border-b-[#637FEA] hover:translate-y-[-10px] transform transition-all duration-300">
-                <div className="w-full h-[120px]">
+                <div className="w-full h-[80px]">
                   <img className="object-contain w-full h-full" src={item.imageSrc} alt="Courses"/>
                 </div>
                 <h2 className="text-[36.91px] font-bold text-[#192335] my-5">{meter}+ h</h2>

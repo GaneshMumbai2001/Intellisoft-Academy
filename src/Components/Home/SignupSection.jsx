@@ -29,7 +29,7 @@ const SignupSection = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="flex flex-wrap justify-center bg-cover bg-fixed bg-center p-15 w-6/7 md:w-6/7 sm:w-full">
+      <div className="flex flex-wrap justify-center bg-cover bg-fixed bg-center p-15 w-6/7  sm:w-full">
         <motion.div 
           className="flex-1 flex flex-col justify-center text-white"
           initial={{ x: -100, opacity: 0 }}

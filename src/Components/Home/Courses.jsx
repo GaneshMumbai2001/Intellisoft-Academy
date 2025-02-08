@@ -16,11 +16,11 @@ const courses = [
 
 const Courses = () => {
   return (
-    <div className="flex flex-wrap gap-6 justify-center bg-[#F9F9FF] p-10 w-full">
+    <div className="flex flex-wrap gap-1 justify-center bg-[#F9F9FF] p-8 w-full">
       {courses.map((course, index) => (
         <motion.div 
           key={course.id} 
-          className="course-card w-64 h-60 p-4 text-center rounded-lg shadow-md bg-white transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 group relative"
+          className="course-card w-64 h-60 p-4 text-center rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 group relative"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
