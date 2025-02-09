@@ -85,11 +85,16 @@ const LandingPage = () => {
           </div>
           
           {/* Image Section */}
-          <div className="text-white p-10 w-full h-auto md:w-1/2">
+          <div className="text-white p-4 w-full h-auto md:w-1/2 sm:w-full ">
             {imageData.filter(item => item.id === 2).map((item, index) => (
-              <div className="img-lan-4 w-full h-auto" key={index}>
-                <img src={item.imgSrc} alt={item.altText} className="w-full rounded-lg h-[400px] object-cover p-5" />
-              </div>
+            <div className="img-lan-4 w-full h-auto" key={index}>
+            <img 
+              src={item.imgSrc} 
+              alt={item.altText} 
+              className="w-full min-h-[300px] md:h-[400px]  object-cover rounded-lg"
+            />
+           </div>
+          
             ))}
             {imageData.filter(item => item.id === 3).map((item, index) => (
               <motion.div

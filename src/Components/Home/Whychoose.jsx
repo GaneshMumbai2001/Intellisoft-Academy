@@ -10,10 +10,10 @@ const WhyChoose = () => {
   const intervalRef = useRef(null);
 
   const whyChooseData = [
-    { id: 1, imageSrc: w1Image1, title: "+800h", description: "Courses & Video", lineHeight: "h-[35px]", circleBottom: "bottom-6", lineBottom: "bottom-7" },
-    { id: 2, imageSrc: w1Image2, title: "+800h", description: "Courses & Video", lineHeight: "h-[80px]", circleBottom: "bottom-1", lineBottom: "bottom-1" },
-    { id: 3, imageSrc: w1Image3, title: "+800h", description: "Courses & Video", lineHeight: "h-[30px]", circleBottom: "bottom-7", lineBottom: "bottom-7" },
-    { id: 4, imageSrc: w1Image4, title: "+800h", description: "Courses & Video", lineHeight: "h-[80px]", circleBottom: "bottom-0", lineBottom: "bottom-0" },
+    { id: 1, imageSrc: w1Image1, title: "+800h", description: "Courses & Video", lineHeight: "h-[40px]", circleBottom: "bottom-10", lineBottom: "bottom-11" },
+    { id: 2, imageSrc: w1Image2, title: "+800h", description: "Courses & Video", lineHeight: "h-[80px]", circleBottom: "bottom-5", lineBottom: "bottom-6" },
+    { id: 3, imageSrc: w1Image3, title: "+800h", description: "Courses & Video", lineHeight: "h-[40px]", circleBottom: "bottom-10", lineBottom: "bottom-11" },
+    { id: 4, imageSrc: w1Image4, title: "+800h", description: "Courses & Video", lineHeight: "h-[80px]", circleBottom: "bottom-5", lineBottom: "bottom-6" },
   ];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const WhyChoose = () => {
 
       <div className="flex justify-center items-center flex-wrap gap-8">
         <motion.div 
-          className="relative top-6 w-[80%] sm:w-[910px] h-[4px] rounded-full bg-gradient-to-r from-[#2F57EF] to-white"
+          className="relative top-1 w-[80%] sm:w-[910px] h-[4px] rounded-full bg-gradient-to-r from-[#2F57EF] to-white"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1.5 }}

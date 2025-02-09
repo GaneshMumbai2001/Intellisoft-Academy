@@ -20,7 +20,7 @@ const Courses = () => {
       {courses.map((course, index) => (
         <motion.div 
           key={course.id} 
-          className="course-card w-64 h-60 p-4 text-center rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 group relative"
+          className="course-card w-64 h-60 p-4 text-center rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 group relative sm:w-64 h-60"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
