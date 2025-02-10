@@ -167,7 +167,7 @@ const features = [
 
 const AboutUs = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center m-10">
       <div className="flex flex-wrap bg-white rounded-lg w-full max-w-6xl sm:max-w-8xl">
         {/* Left Side: Images */}
         <div className="box-three w-full md:w-1/2 flex flex-col items-center">
@@ -193,7 +193,7 @@ const AboutUs = () => {
             Know About Us
           </p>
           <h2 className="text-[32.1px] font-bold text-gray-900 my-2">
-            Know About Histudy Learning Platform
+            Know About Intellisoft Learning Platform
           </h2>
           <p className="text-[13.5px] text-gray-600 text-base">
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...

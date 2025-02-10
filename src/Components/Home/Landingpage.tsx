@@ -38,14 +38,14 @@ const imageData = [
 
 const LandingPage = () => {
   return (
-    <div className="relative min-h-screen bg-[#EFF1FF]">
-      <div className="flex justify-center items-center min-h-screen relative overflow-hidden">
+    <div className="relative bg-[#EFF1FF]">
+      <div className="flex justify-center items-center  relative overflow-hidden">
         <div className="flex flex-col-reverse md:flex-row w-[1100px] p-4 relative">
           <div className="absolute top-48 left-[-200px] w-[300px] h-[300px] rounded-full bg-gradient-to-r from-blue-600 to-purple-500 blur-[80px] opacity-80"></div>
           <div className="absolute top-[-120px] right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-blue-600 to-purple-500 blur-[80px] opacity-80"></div>
           
           {/* Text Section */}
-          <div className="text-white p-10 w-full h-auto md:w-1/2">
+          <div className="text-white p-8 w-full h-auto md:w-1/2">
             <button className="tagline text-[10.42px] text-[#2F57EF] rounded-md bg-[#2f55ef5b] py-1 px-2">
               EDUCATION FOR EVERYONE
             </button>
@@ -91,7 +91,7 @@ const LandingPage = () => {
             <img 
               src={item.imgSrc} 
               alt={item.altText} 
-              className="w-full min-h-[300px] md:h-[400px]  object-cover rounded-lg"
+              className="w-full min-h-[400px] md:h-[400px] sm:h-[800px] object-cover rounded-lg"
             />
            </div>
           

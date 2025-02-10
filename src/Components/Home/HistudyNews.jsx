@@ -44,7 +44,7 @@ const HistudyNews = () => {
         </span>
       </p>
       <h2 className="text-center text-[32.1px] font-bold mb-4">
-        Histudy News
+        Intellisoft News
       </h2>
       <p className="text-center text-[15px] text-gray-600">
         Language Academy Blog.
