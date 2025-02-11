@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState } from "react";
 // import CoursesHeader from "../Components/Courses/CoursesHeader.jsx"; // Fixed import
 // import GridView from "../Components/Courses/GridView"; // Fixed case
@@ -136,9 +137,15 @@ const Course = () => {
   const filteredCourses = courses.filter(course =>
     course.courseName.toLowerCase().includes(searchQuery.toLowerCase())
   );
+=======
+import React from "react";
+import GridView from "../Components/Courses/Gridview";
+import  CoursesHeader  from "../Components/Courses/CoursesHeader";
+>>>>>>> main
 
   return (
     <div>
+<<<<<<< HEAD
       {/* Pass view and setView to CoursesHeader */}
       <CoursesHeader view={view} setView={setView} setSearchQuery={setSearchQuery} />
 
@@ -153,6 +160,10 @@ const Course = () => {
           <ListView courses={filteredCourses} />
         )}
       </motion.div>
+=======
+      <CoursesHeader/>
+      <GridView />
+>>>>>>> main
     </div>
   );
 };
