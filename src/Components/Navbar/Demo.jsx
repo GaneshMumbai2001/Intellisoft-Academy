@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 
-const images = [
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-  "./img/demo.png",
-];
 
 function Demo() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const [currencyOpen, setCurrencyOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedCurrency, setSelectedCurrency] = useState("INR");
 
+  const languages = ["English", "French", "Spanish", "German"];
+  const currencies = ["INR", "USD", "EUR", "GBP"];
+
+  
   return (
-    <div className="flex items-center justify-center">
-      <div className="bg-blue-400 max-w-6xl w-full p-4">
-        {/* Dropdown Navigation */}
-        <div
-          className="relative inline-block text-left mb-4"
-          onMouseEnter={() => setIsDropdownOpen(true)}
-          onMouseLeave={() => setIsDropdownOpen(false)}
-        >
-          <button className="px-4 py-2 bg-white text-blue-600 font-medium rounded-md shadow-md">Demos</button>
-          {isDropdownOpen && (
-            <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md p-2 flex flex-col gap-2 z-50">
-              <a href="#" className="px-4 py-2 hover:bg-gray-200">Demo 1</a>
-              <a href="#" className="px-4 py-2 hover:bg-gray-200">Demo 2</a>
-              <a href="#" className="px-4 py-2 hover:bg-gray-200">Demo 3</a>
-            </div>
-          )}
+    <div className="w-full">
+      {/* Top Header */}
+      <div className="flex justify-between items-center px-5 py-2 text-xs text-gray-600 max-w-[1000px] mx-auto">
+        <div>Have any Question?</div>
+        <div className="flex gap-4">
+          <span>example@gmail.com</span>
+          <span>+1-202-555-0174</span>
         </div>
-
-        <div className="grid grid-cols-6 gap-4">
-          {images.map((src, index) => (
-            <div key={index} className="relative group overflow-hidden py-4 px-4">
-              <img
-                src={src}
-                alt={`Design Preview ${index + 1}`}
-                className="shadow-lg w-full rounded-lg object-cover transform transition-transform duration-300 group-hover:-translate-y-2"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 text-white text-center py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <strong>Demo Start →</strong>
+        <div className="flex gap-4 items-center relative">
+          <div className="relative">
+            <button onClick={() => setLanguageOpen(!languageOpen)} className="flex items-center gap-1 cursor-pointer">
+              <img src="/public/navbar/flag.png" alt="US Flag" className="w-4 h-3" /> {selectedLanguage}
+            </button>
+            {languageOpen && (
+              <div className="absolute bg-white shadow-md rounded-md p-2 mt-2 w-24">
+                {languages.map((lang) => (
+                  <div key={lang} onClick={() => { setSelectedLanguage(lang); setLanguageOpen(false); }} className="cursor-pointer p-1 hover:bg-gray-200">
+                    {lang}
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
+            )}
+          </div>
+          <div className="relative">
+            <button onClick={() => setCurrencyOpen(!currencyOpen)} className="cursor-pointer">
+              {selectedCurrency}
+            </button>
+            {currencyOpen && (
+              <div className="absolute bg-white shadow-md rounded-md p-2 mt-2 w-24">
+                {currencies.map((curr) => (
+                  <div key={curr} onClick={() => { setSelectedCurrency(curr); setCurrencyOpen(false); }} className="cursor-pointer p-1 hover:bg-gray-200">
+                    {curr}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
     </div>
   );
 }

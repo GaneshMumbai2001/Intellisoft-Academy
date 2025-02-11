@@ -123,7 +123,7 @@ function CourseBenefits() {
       {/* Language Selector */}
       <div className="mb-4 flex justify-end">
         <select
-          className="p-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm shadow-md"
+          className="p-2 border  text-gray-700 text-sm shadow-md"
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
         >
@@ -137,7 +137,7 @@ function CourseBenefits() {
 
       {/* Section Heading */}
       <motion.h2
-        className="text-2xl font-bold mb-6 text-indigo-800 drop-shadow-md"
+        className="text-2xl font-bold mb-6 text-indigo-800 "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -150,7 +150,7 @@ function CourseBenefits() {
         {translations[language].benefits.map((benefit, index) => (
           <motion.div
             key={index}
-            className="p-6 rounded-xl shadow-lg bg-white/60 border border-white/50 backdrop-blur-lg transition-all"
+            className="p-6 rounded-xl transition-all"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: index * 0.2 }}

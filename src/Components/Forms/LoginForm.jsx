@@ -83,7 +83,7 @@ export const LoginForm = () => {
     });
     const [error, setError] = useState(""); // State for error messages
     const [success, setSuccess] = useState(""); // State for success messages
-    const [loading,setLoading] = useState(false); // State for loading
+    const [loading, setLoading] = useState(false); // State for loading
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -92,29 +92,29 @@ export const LoginForm = () => {
             [name]: type === "checkbox" ? checked : value,
         }));
         setError(""); // Clear error on input change
-        setSuccess(""); //Clear success on input change
+        setSuccess(""); // Clear success on input change
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true); // Set loading to true
-        setError(""); // Clear previous errors
-        setSuccess(""); // Clear previous success messages
+        setLoading(true);
+        setError("");
+        setSuccess("");
 
-        // Basic client-side validation (can be more robust)
+        // Basic client-side validation
         if (!formData.email) {
             setError("Email is required");
-            setLoading(false); // Set loading to false
+            setLoading(false);
             return;
         }
         if (!formData.password) {
             setError("Password is required");
-            setLoading(false); // Set loading to false
+            setLoading(false);
             return;
         }
 
         try {
-            const response = await fetch("http://localhost:8000/", { // Or your server URL
+            const response = await fetch("http://localhost:5000/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -122,30 +122,21 @@ export const LoginForm = () => {
                 body: JSON.stringify(formData),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
             const data = await response.json();
 
-            if (data === "exist") {
+            if (response.ok) {
                 setSuccess("Login successful!");
-                // Redirect or perform other actions on successful login
-                console.log("Login Successful")
-                // Example: redirecting the user
-                // window.location.href = "/dashboard"; // Replace with your desired route
-            } else if (data === "notexist") {
-                setError("Invalid email or password");
-            } else if (data === "fail") {
-                setError("An error occurred. Please try again later.");
+                console.log("Login Successful");
+                // Example: Redirecting the user
+                // window.location.href = "/dashboard";
             } else {
-                setError("Unexpected response from server.");
+                setError(data.message || "Something went wrong. Please try again.");
             }
         } catch (err) {
             console.error("Login error:", err);
-            setError("A network error occurred. Please try again later.");
+            setError("A network error occurred. Please check your connection.");
         } finally {
-            setLoading(false); // Set loading to false regardless of success or failure
+            setLoading(false);
         }
     };
 
@@ -156,13 +147,28 @@ export const LoginForm = () => {
                 {error && <div className="text-red-500 mb-4">{error}</div>} {/* Display error */}
                 {success && <div className="text-green-500 mb-4">{success}</div>} {/* Display success */}
                 <form className="mt-6" onSubmit={handleSubmit}>
-                    {/* ... (rest of your form code) */}
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full p-2 mb-4 border border-gray-300 rounded"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="w-full p-2 mb-4 border border-gray-300 rounded"
+                    />
                     <button
                         type="submit"
-                        className={`w-full py-2 text-white rounded-lg hover:opacity-90 ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-purple-500 to-blue-500'}`}
-                        disabled={loading} // Disable the button while loading
+                        className={`w-full py-2 text-white rounded-lg hover:opacity-90 ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-purple-500 to-blue-500"}`}
+                        disabled={loading}
                     >
-                        {loading ? 'Logging in...' : 'Log in'} {/* Show loading text */}
+                        {loading ? "Logging in..." : "Log in"}
                     </button>
                 </form>
             </div>

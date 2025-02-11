@@ -45,14 +45,14 @@ function CourseContent() {
 
   return (
     <motion.div
-      className="mb-8 p-6 bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-500 rounded-xl shadow-lg text-white"
+      className="mb-8 p-6 bg-white text-black"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
       <div className="mb-4 flex justify-end">
         <select
-          className="p-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm shadow-md"
+          className="p-2 border bg-white text-gray-700 text-sm shadow-md"
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
         >
@@ -70,7 +70,7 @@ function CourseContent() {
       <motion.div className="space-y-6">
         {content.sections.map((section, index) => (
           <motion.div key={index} className="border border-white/20 rounded-lg bg-white/10 p-4">
-            <h3 className="font-medium text-lg text-white">{section.title}</h3>
+            <h3 className="font-medium text-lg text-black">{section.title}</h3>
             <span className="text-sm bg-gray-900/60 px-2 py-1 rounded-lg">{section.level}</span>
             {section.items.length > 0 && (
               <div className="p-4 space-y-3">

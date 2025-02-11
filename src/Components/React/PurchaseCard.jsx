@@ -33,7 +33,7 @@ function PurchaseCard() {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         <img
-          src="/course-thumbnail.jpg"
+          src="../React/react/r1.png"
           alt="Course thumbnail"
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
@@ -83,7 +83,7 @@ function PurchaseCard() {
           </motion.span>
         </div>
         <motion.button
-          className="w-full bg-blue-600 text-white py-2 rounded-lg mb-3 text-sm shadow-md"
+          className="w-full bg-white text-black py-2 rounded-lg mb-3 text-sm shadow-md"
           whileHover={{ scale: 1.05, backgroundColor: "#2563eb" }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}

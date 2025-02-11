@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -58,7 +59,7 @@ function CourseInfo() {
       {/* Course Description */}
       <motion.div className="prose max-w-none">
         <motion.p
-          className="text-gray-800 mb-4 p-4 bg-white/70 rounded-lg shadow-sm border border-white/50 backdrop-blur-lg"
+          className="text-gray-800 mb-4 p-4 backdrop-blur-lg"
           whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.85)' }}
           transition={{ duration: 0.3 }}
         >
@@ -94,7 +95,7 @@ function CourseInfo() {
           {content.learnList.map((item, index) => (
             <motion.li
               key={index}
-              className="p-3 bg-white/80 rounded-md shadow-md border border-white/60 backdrop-blur-lg"
+              className="p-3 backdrop-blur-lg"
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
               transition={{ duration: 0.3 }}
