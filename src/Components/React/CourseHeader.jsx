@@ -52,7 +52,7 @@ function CourseHeader() {
 
   return (
     <motion.div 
-    className="mb-6  p-8 rounded-lg bg-gradient-to-b from-[#D0D4F6] to-[#F5E0EC] shadow-lg backdrop-blur-lg border border-white/30"
+    className=" p-8 rounded-lg bg-gradient-to-b from-[#D0D4F6] to-[#F5E0EC] shadow-lg backdrop-blur-lg border border-white/30"
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7, ease: "easeOut" }}
@@ -111,7 +111,7 @@ function CourseHeader() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        🚀 {translations[language].react}
+      {translations[language].react}
       </motion.h1>
 
       {/* Course Description */}
@@ -133,7 +133,7 @@ function CourseHeader() {
       >
         <div className="w-12 h-12">
           <motion.img
-            src="/courses5.jpg"
+            src="/public/react/react.png"
             alt="Instructor"
             className="w-full h-full rounded-full border-2 border-indigo-600 shadow-md"
             whileHover={{ scale: 1.1 }}

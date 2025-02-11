@@ -1,172 +1,187 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import CourseCard from "../React/CourseCard";
 
-const translations = {
-  en: {
-    explore: "🚀 EXPLORE ALL PRODUCTS",
-    relatedCourses: "Related Courses",
-    courses: [
-      {
-        image: "/user2.jpg",
-        title: "Basics of HiStudy Theme",
-        lessons: "14 Lessons",
-        students: "4 Students",
-        description: "HiStudy Education Theme by Rainbow-Themes is a user-friendly WordPress...",
-        author: "Rainbow Themes",
-        category: "Core Functions",
+const  RelatedCourses = () => {
+  const initialCourses = [
+    {
+      imageLink: "/courses/c1.png",
+      reviews: 5,
+      courseName: "React Mastery",
+      totalLessons: 12,
+      enrolledStudents: 50,
+      description: "Master React from basics to advanced concepts with hands-on projects.",
+      price: "120.00",
+      curPrice: "70.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Monika",
+        field: "IT",
       },
-      {
-        image: "/Blogpost3.jpg",
-        title: "App Development",
-        lessons: "7 Lessons",
-        students: "18 Students",
-        description: "App Development by building 100 projects in 100 days. Learn...",
-        author: "Rainbow Themes",
-        category: "API",
+    },
+    {
+      imageLink: "/courses/c2.png",
+      reviews: 4.8,
+      courseName: "JavaScript Essentials",
+      totalLessons: 10,
+      enrolledStudents: 45,
+      description: "Learn the fundamentals of JavaScript with practical coding exercises.",
+      price: "100.00",
+      curPrice: "60.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "John Doe",
+        field: "Web Development",
       },
-      {
-        image: "/courses5.jpg",
-        title: "English Popular Course",
-        lessons: "7 Lessons",
-        students: "0 Students",
-        description: "Histudy is an elegant theme.",
-        author: "Rainbow Themes",
-        category: "API",
+    },
+    {
+      imageLink: "/courses/c3.png",
+      reviews: 4.5,
+      courseName: "Python for Beginners",
+      totalLessons: 15,
+      enrolledStudents: 60,
+      description: "A comprehensive introduction to Python programming.",
+      price: "110.00",
+      curPrice: "65.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Jane Smith",
+        field: "Data Science",
       },
-    ],
-  },
-  hi: { // Hindi
-    explore: "🚀 सभी उत्पादों का अन्वेषण करें",
-    relatedCourses: "संबंधित पाठ्यक्रम",
-    courses: [
-      {
-        title: "HiStudy थीम के मूल सिद्धांत",
-        lessons: "14 पाठ",
-        students: "4 छात्र",
-        description: "HiStudy शिक्षा थीम एक उपयोगकर्ता-अनुकूल वर्डप्रेस थीम है...",
-        category: "मुख्य कार्य",
-      },
-      {
-        title: "ऐप डेवलपमेंट",
-        lessons: "7 पाठ",
-        students: "18 छात्र",
-        description: "100 दिनों में 100 प्रोजेक्ट बनाकर ऐप डेवलपमेंट सीखें...",
-        category: "एपीआई",
-      },
-      {
-        title: "अंग्रेज़ी लोकप्रिय पाठ्यक्रम",
-        lessons: "7 पाठ",
-        students: "0 छात्र",
-        description: "Histudy एक सुंदर थीम है।",
-        category: "एपीआई",
-      },
-    ],
-  },
-  te: { // Telugu
-    explore: "🚀 అన్ని ఉత్పత్తులను అన్వేషించండి",
-    relatedCourses: "సంబంధిత కోర్సులు",
-    courses: [
-      {
-        title: "HiStudy థీమ్ ప్రాథమికాలు",
-        lessons: "14 పాఠాలు",
-        students: "4 విద్యార్థులు",
-        description: "HiStudy ఎడ్యుకేషన్ థీమ్ వినియోగదారునకు అనుకూలమైన WordPress...",
-        category: "కోర్ ఫంక్షన్స్",
-      },
-      {
-        title: "యాప్ డెవలప్‌మెంట్",
-        lessons: "7 పాఠాలు",
-        students: "18 విద్యార్థులు",
-        description: "100 రోజుల్లో 100 ప్రాజెక్ట్స్‌ను రూపొందించి యాప్ డెవలప్‌మెంట్ నేర్చుకోండి...",
-        category: "API",
-      },
-      {
-        title: "ఇంగ్లీష్ ప్రాచుర్యం పొందిన కోర్సు",
-        lessons: "7 పాఠాలు",
-        students: "0 విద్యార్థులు",
-        description: "Histudy అందమైన థీమ్.",
-        category: "API",
-      },
-    ],
-  },
-};
+    },
+  ];
 
-function RelatedCourses() {
-  const [language, setLanguage] = useState("en");
-  const { explore, relatedCourses, courses } = translations[language];
+  const additionalCourses = [
+    {
+      imageLink: "/courses/c4.png",
+      reviews: 4.2,
+      courseName: "Web Design Fundamentals",
+      totalLessons: 8,
+      enrolledStudents: 35,
+      description: "Learn the basics of web design and create stunning websites.",
+      price: "90.00",
+      curPrice: "50.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Alice Johnson",
+        field: "Design",
+      },
+    },
+    {
+      imageLink: "/courses/c5.png",
+      reviews: 4.9,
+      courseName: "Advanced React Patterns",
+      totalLessons: 12,
+      enrolledStudents: 40,
+      description: "Explore advanced React patterns and best practices.",
+      price: "130.00",
+      curPrice: "80.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Bob Williams",
+        field: "IT",
+      },
+    },
+    {
+      imageLink: "/courses/c6.png",
+      reviews: 4.7,
+      courseName: "Data Science with Python",
+      totalLessons: 18,
+      enrolledStudents: 70,
+      description: "Learn data science techniques using Python.",
+      price: "140.00",
+      curPrice: "90.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Eva Davis",
+        field: "Data Science",
+      },
+    },
+  ];
+
+  const [courses, setCourses] = useState(initialCourses);
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMore = () => {
+    setCourses([...initialCourses, ...additionalCourses]);
+    setShowMore(true);
+  };
+
+  const handleShowLess = () => {
+    setCourses(initialCourses);
+    setShowMore(false);
+  };
 
   return (
-    <motion.div
-      className="mb-16"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      {/* Language Selector */}
-      <div className="mb-4 text-right">
-        <select
-          onChange={(e) => setLanguage(e.target.value)}
-          value={language}
-          className="border p-2 rounded"
-        >
-          <option value="en">English</option>
-          <option value="hi">हिन्दी</option>
-          <option value="te">తెలుగు</option>
-        </select>
-      </div>
-
-      {/* Section Title */}
-      <motion.div 
-        className="mb-8 text-center"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        <motion.span
-          className="text-blue-600 text-sm font-medium uppercase mb-2 block tracking-wide"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
-        >
-          {explore}
-        </motion.span>
+    <div className="py-10 flex flex-col items-center relative">
+        <div className="">
+        <p className=" text-sm font-normal py-2">
+          <span className="text-[10.01px] bg-pink-400/20 px-3 py-2 rounded-full">
+          Explore All Products
+           </span>
+         </p>
+        </div>
+      
+      <div className="mb-8 flex justify-between w-full max-w-6xl items-center">
+        
         <motion.h2
           className="text-3xl font-bold text-gray-900"
-          initial={{ opacity: 0, y: -15 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
         >
-          {relatedCourses}
+         Related Course
         </motion.h2>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {!showMore ? (
+            <button
+              className="text-sm px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md"
+              onClick={handleShowMore}
+            >
+              More Courses By Rainbow Themes
+            </button>
+          ) : (
+            <button
+              className="text-sm px-6 py-2 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-md"
+              onClick={handleShowLess}
+            >
+              Show Less
+            </button>
+          )}
+        </motion.div>
+      </div>
 
-      {/* Course Cards Grid */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
         {courses.map((course, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: index * 0.2,
-              type: "spring",
-              stiffness: 150,
-              damping: 15,
-            }}
-            whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
           >
-            <CourseCard {...course} />
+            <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
+            <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
+            <p className="text-sm text-gray-600 my-2">{course.description}</p>
+            <div className="flex justify-between text-sm text-gray-500">
+              <span>{course.totalLessons} Lessons</span>
+              <span>{course.enrolledStudents} Students</span>
+            </div>
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
-}
+};
 
 export default RelatedCourses;

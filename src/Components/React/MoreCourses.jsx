@@ -1,144 +1,187 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import CourseCard from "../React/CourseCard";
 
-const translations = {
-  en: {
-    topCourse: "🚀 TOP COURSE",
-    moreCourses: "More Courses by",
-    viewAll: "View All Courses →",
-  },
-  te: {
-    topCourse: "🚀 టాప్ కోర్సు",
-    moreCourses: "ఇంకా ఎక్కువ కోర్సులు",
-    viewAll: "అన్ని కోర్సులను చూడండి →",
-  },
-  hi: {
-    topCourse: "🚀 शीर्ष पाठ्यक्रम",
-    moreCourses: "और पाठ्यक्रम",
-    viewAll: "सभी पाठ्यक्रम देखें →",
-  },
-};
-
-function MoreCourses() {
-  const [language, setLanguage] = useState("en");
-  const t = translations[language];
-
-  const courses = [
+const  MoreCourses = () => {
+  const initialCourses = [
     {
-      image: "/meeting1.jpg",
-      title: "Basics of HiStudy Theme",
-      lessons: 14,
-      students: 4,
-      description: "HiStudy Education Theme by Rainbow-Themes is a user-friendly WordPress tool...",
-      author: "Rainbow Themes",
-      category: "Core Functions",
-      reviews: 0,
+      imageLink: "/courses/c1.png",
+      reviews: 5,
+      courseName: "React Mastery",
+      totalLessons: 12,
+      enrolledStudents: 50,
+      description: "Master React from basics to advanced concepts with hands-on projects.",
+      price: "120.00",
+      curPrice: "70.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Monika",
+        field: "IT",
+      },
     },
     {
-      image: "/Blogpost1.jpg",
-      title: "App Development",
-      lessons: 7,
-      students: 18,
-      description: "App Development by building 100 projects in 100 days. Learn...",
-      author: "Rainbow Themes",
-      category: "API",
-      reviews: 0,
+      imageLink: "/courses/c2.png",
+      reviews: 4.8,
+      courseName: "JavaScript Essentials",
+      totalLessons: 10,
+      enrolledStudents: 45,
+      description: "Learn the fundamentals of JavaScript with practical coding exercises.",
+      price: "100.00",
+      curPrice: "60.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "John Doe",
+        field: "Web Development",
+      },
     },
     {
-      image: "/Hero1.jpg",
-      title: "English Popular Course",
-      lessons: 7,
-      students: 0,
-      description: "Histudy is elegant theme.",
-      author: "Rainbow Themes",
-      category: "API",
-      reviews: 0,
+      imageLink: "/courses/c3.png",
+      reviews: 4.5,
+      courseName: "Python for Beginners",
+      totalLessons: 15,
+      enrolledStudents: 60,
+      description: "A comprehensive introduction to Python programming.",
+      price: "110.00",
+      curPrice: "65.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Jane Smith",
+        field: "Data Science",
+      },
     },
   ];
 
+  const additionalCourses = [
+    {
+      imageLink: "/courses/c4.png",
+      reviews: 4.2,
+      courseName: "Web Design Fundamentals",
+      totalLessons: 8,
+      enrolledStudents: 35,
+      description: "Learn the basics of web design and create stunning websites.",
+      price: "90.00",
+      curPrice: "50.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Alice Johnson",
+        field: "Design",
+      },
+    },
+    {
+      imageLink: "/courses/c5.png",
+      reviews: 4.9,
+      courseName: "Advanced React Patterns",
+      totalLessons: 12,
+      enrolledStudents: 40,
+      description: "Explore advanced React patterns and best practices.",
+      price: "130.00",
+      curPrice: "80.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Bob Williams",
+        field: "IT",
+      },
+    },
+    {
+      imageLink: "/courses/c6.png",
+      reviews: 4.7,
+      courseName: "Data Science with Python",
+      totalLessons: 18,
+      enrolledStudents: 70,
+      description: "Learn data science techniques using Python.",
+      price: "140.00",
+      curPrice: "90.00",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "Eva Davis",
+        field: "Data Science",
+      },
+    },
+  ];
+
+  const [courses, setCourses] = useState(initialCourses);
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMore = () => {
+    setCourses([...initialCourses, ...additionalCourses]);
+    setShowMore(true);
+  };
+
+  const handleShowLess = () => {
+    setCourses(initialCourses);
+    setShowMore(false);
+  };
+
   return (
-    <motion.div
-      className="mb-16"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      {/* Language Selector */}
-      <div className="flex justify-end mb-4">
-        <select
-          className="border p-2 rounded-lg bg-white shadow-sm"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+    <div className="py-10 flex flex-col items-center relative">
+        <div className="">
+        <p className=" text-sm font-normal py-2">
+          <span className="text-[10.01px] bg-pink-400/20 px-3 py-2 rounded-full">
+          TOP COURSE
+           </span>
+         </p>
+        </div>
+      
+      <div className="mb-8 flex justify-between w-full max-w-6xl items-center">
+        
+        <motion.h2
+          className="text-3xl font-bold text-gray-900"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <option value="en">English</option>
-          <option value="te">తెలుగు</option>
-          <option value="hi">हिन्दी</option>
-        </select>
+         More Course By <span className="text-blue-800">Rainbow Themes</span>
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {!showMore ? (
+            <button
+              className="text-sm px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md"
+              onClick={handleShowMore}
+            >
+              More Courses By Rainbow Themes
+            </button>
+          ) : (
+            <button
+              className="text-sm px-6 py-2 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-md"
+              onClick={handleShowLess}
+            >
+              Show Less
+            </button>
+          )}
+        </motion.div>
       </div>
 
-      {/* Header Section */}
-      <motion.div 
-        className="flex items-center justify-between mb-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        <div>
-          <motion.span
-            className="text-pink-500 text-sm font-medium uppercase mb-2 block"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-          >
-            {t.topCourse}
-          </motion.span>
-          <motion.h2
-            className="text-2xl font-bold text-gray-900"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            {t.moreCourses} <span className="text-blue-600">Rainbow Themes</span>
-          </motion.h2>
-        </div>
-        <motion.button
-          className="px-4 py-2 border rounded-lg bg-gray-100 hover:bg-blue-100 text-blue-600 font-semibold transition-all duration-300"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.3 }}
-        >
-          {t.viewAll}
-        </motion.button>
-      </motion.div>
-
-      {/* Course Cards Grid */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        className="w-full lg:max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
         {courses.map((course, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: index * 0.2,
-              type: "spring",
-              stiffness: 150,
-              damping: 15,
-            }}
-            whileHover={{ scale: 1.03 }}
+            className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
           >
-            <CourseCard {...course} />
+            <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
+            <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
+            <p className="text-sm text-gray-600 my-2">{course.description}</p>
+            <div className="flex justify-between text-sm text-gray-500">
+              <span>{course.totalLessons} Lessons</span>
+              <span>{course.enrolledStudents} Students</span>
+            </div>
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
-}
+};
 
 export default MoreCourses;
