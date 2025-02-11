@@ -8,12 +8,14 @@ import Blog from "./Pages/Blog.jsx";
 import Contact from "./Pages/Contact.jsx";
 import Course from "./Pages/Course.jsx";
 import Home from "./Pages/Home.jsx";
+import SignUp from "./Pages/SignUp.jsx";
 import SignUpAdmin from "./Pages/SignUpAdmin.jsx";
 import SignUpInstructor from "./Pages/SignUpInstructor.jsx";
 import SignUpUser from "./Pages/SignUpUser.jsx";
 import LoginFormAll from "./Pages/LoginFormAll.jsx";
 import Landing from "./Pages/Landing.jsx"
 import React from "./Pages/React.jsx"
+import Courseinfo from "./Pages/Courseinfo.jsx"
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,9 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/courses", element: <Course /> },
       { path: "/landing", element: <Landing/> },
+      { path: "/courseinfo", element: <Courseinfo/> },
       { path: "/react", element: <React/> },
+      { path: "/signup", element: <SignUp/> },
       { path: "/signup/admin", element: <SignUpAdmin /> },
       { path: "/signup/instructor", element: <SignUpInstructor /> },
       { path: "/signup/user", element: <SignUpUser /> },

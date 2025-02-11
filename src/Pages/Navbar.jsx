@@ -70,7 +70,11 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { X, Menu } from "lucide-react";
 import intellisoftLogo from '/public/navbar/intellisoft.png'; // Import the logo
-import demoImage from "/public/navbar/b1.png"; // Import the demo image
+import demoImage from "/public/navbar/b1.png"; 
+import demoImage2 from "/public/navbar/b2.png"; 
+import demoImage3 from "/public/navbar/b3.png"; 
+import demoImage4 from "/public/navbar/b4.png"; 
+import demoImage5 from "/public/navbar/b5.png"; 
 import c1Image from "/public/navbar/c1.png";
 import growImage from '/public/navbar/grow.png'; // Import your images
 import comImage from '/public/navbar/com.png';
@@ -78,21 +82,21 @@ import comImage from '/public/navbar/com.png';
 const Navbar = () => {
   const demoData = [
     { title: 'Kinder Garden →', image: demoImage },
-    { title: 'Home Elegant →', image: demoImage },
-    { title: 'Gym Coaching →', image: demoImage },
+    { title: 'Home Elegant →', image: demoImage2 },
+    { title: 'Gym Coaching →', image: demoImage3 },
+    { title: 'Demo Start →', image: demoImage4 },
+    { title: 'Demo Start →', image: demoImage5 },
+    { title: 'Demo Start →', image: demoImage2 },
+    { title: 'Demo Start →', image: demoImage4 },
+    { title: 'Demo Start →', image: demoImage3 },
+    { title: 'Demo Start →', image: demoImage4 },
+    { title: 'Demo Start →', image: demoImage5 },
     { title: 'Demo Start →', image: demoImage },
+    { title: 'Demo Start →', image: demoImage5 },
     { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
-    { title: 'Demo Start →', image: demoImage },
+    { title: 'Demo Start →', image: demoImage2 },
+    { title: 'Demo Start →', image: demoImage3 },
+    { title: 'Demo Start →', image: demoImage4 },
     // ... more demo items
   ];
 

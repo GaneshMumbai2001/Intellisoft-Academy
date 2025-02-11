@@ -45,7 +45,7 @@ const Course = () => {
       curPrice: "70.00",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "Monika",
+        name: "Riya",
         field: "IT",
       },
     },
