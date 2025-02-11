@@ -50,13 +50,13 @@ const WhyChoose = () => {
         <p className="text-[10.34px] font-normal py-2">
           <span className="bg-pink-400/20 px-3 py-2 rounded-full">Why Choose Us</span>
         </p>
-        <h2 className="text-[31.97px] font-bold mb-4">Why Choose Histudy</h2>
-        <p className="text-[15px] text-gray-600">Language Academic?</p>
+        <h2 className="text-[31.97px] font-bold mb-4">Why Choose Intellisoft</h2>
+        <p className="text-[15px] p-5  text-gray-600">Language Academic?</p>
       </div>
 
       <div className="flex justify-center items-center flex-wrap gap-8">
         <motion.div 
-          className="relative top-1 w-[80%] sm:w-[910px] h-[4px] rounded-full bg-gradient-to-r from-[#2F57EF] to-white"
+          className="relative top-1 w-[80%] sm:w-[910px] h-[5px] rounded-full bg-gradient-to-r from-[#2F57EF] to-white"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1.5 }}
