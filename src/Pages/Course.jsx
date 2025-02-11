@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-// import React, { useState } from "react";
-// import CoursesHeader from "../Components/Courses/CoursesHeader.jsx"; // Fixed import
-// import GridView from "../Components/Courses/GridView"; // Fixed case
-// import ListView from "../Components/Courses/ListView"; // Fixed case
-// import { motion } from "framer-motion";
-
-// const Course = () => {
-//   const [view, setView] = useState("grid");
-
-//   return (
-//     <div>
-//       <CoursesHeader setView={setView} view={view} />
-//       <motion.div
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         transition={{ duration: 0.5 }}
-//       >
-//         {view === "grid" ? <GridView /> : <ListView />}
-//       </motion.div>
-//     </div>
-//   );
-// };
-
-// export default Course;
 import React, { useState } from "react";
 import CoursesHeader from "../Components/Courses/CoursesHeader"; // Correct import path
 import GridView from "../Components/Courses/GridView"; // Correct import path
@@ -137,15 +112,10 @@ const Course = () => {
   const filteredCourses = courses.filter(course =>
     course.courseName.toLowerCase().includes(searchQuery.toLowerCase())
   );
-=======
-import React from "react";
-import GridView from "../Components/Courses/Gridview";
-import  CoursesHeader  from "../Components/Courses/CoursesHeader";
->>>>>>> main
+
 
   return (
     <div>
-<<<<<<< HEAD
       {/* Pass view and setView to CoursesHeader */}
       <CoursesHeader view={view} setView={setView} setSearchQuery={setSearchQuery} />
 
@@ -160,10 +130,8 @@ import  CoursesHeader  from "../Components/Courses/CoursesHeader";
           <ListView courses={filteredCourses} />
         )}
       </motion.div>
-=======
       <CoursesHeader/>
       <GridView />
->>>>>>> main
     </div>
   );
 };
