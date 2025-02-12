@@ -130,8 +130,7 @@ const Course = () => {
           <ListView courses={filteredCourses} />
         )}
       </motion.div>
-      <CoursesHeader/>
-      <GridView />
+
     </div>
   );
 };

@@ -47,7 +47,7 @@ const translations = {
   },
 };
 
-function CourseHeader() {
+function ReactHeader() {
   const [language, setLanguage] = useState("en");
 
   return (
@@ -146,4 +146,4 @@ function CourseHeader() {
   );
 }
 
-export default CourseHeader;
+export default ReactHeader;
