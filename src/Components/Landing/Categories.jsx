@@ -11,27 +11,27 @@ const categories = [
   { name: "Personal Development", courses: 1, icon: cupBresh },
   { name: "Mobile Application", courses: 1, icon: smartPhone },
   { name: "IT and Software", courses: 1, icon: server },
+  
   { name: "Graphic Design", courses: 1, icon: paint },
   { name: "Finance & Accounting", courses: 1, icon: circleImg },
   { name: "Art & Humanities", courses: 2, icon: cupBresh },
 ];
 
 
-
 const Categories = () => {
   return (
     <div className="w-full mb-10 flex items-center justify-center">
-      <div className="w-[90%] flex flex-col items-center">
+      <div className="w-[100%] flex flex-col items-center">
         <div className="px-4 py-1 text-xs font-semibold rounded-xl bg-[#e4e9fd] text-[#2f56ef]">
           CATEGORIES
         </div>
 
-        <h2 className="text-[28px] sm:text-[32px] md:text-[40px] font-bold text-[#1a2235] text-center mt-2 leading-tight">
+        <h2 className="text-[28px] sm:text-[32px] md:text-[40px] font-bold text-[#1a2235] text-center leading-tight">
           Explore Top Courses <span className="text-[#1a2235]">Categories</span>
           <br /> That Change Yourself
         </h2>
 
-        <div className="w-[80%] flex flex-wrap justify-center md:justify-between mt-10 gap-6">
+        <div className="w-[80%] flex flex-wrap justify-center md:justify-between mt-10 gap-4">
           {categories.map((category, index) => (
             <div
               key={index}

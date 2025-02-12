@@ -10,12 +10,12 @@ import Events from "../Components/Landing/Events"
 import Teacher from "../Components/Landing/Teacher";
 import Posts from "../Components/Landing/Posts"
 import Subscribe from "../Components/Landing/Subscribe"
-// import Footer from "../Components/Landing/Footer"
-// import SideBar from "../Components/Landing/SideBar"
+import WhyChooseCard from "../Components/Landing/WhyChooseCard";
+import CourseCard from "../Components/Landing/CourseCard"
 
 
 const Landing =()=>{
-    const [menu, setMenu] = React.useState(false);
+    // const [menu, setMenu] = React.useState(false);
 
 
     return (
@@ -25,6 +25,8 @@ const Landing =()=>{
             <Categories />
             <Popular />
             <LearnPlatform />
+            <CourseCard/>
+            <WhyChooseCard/>
             <Education />
             <Events />
             <Teacher/>

@@ -1,5 +1,10 @@
 
-import React, { useState } from "react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const eventsData = [
   {
@@ -47,55 +52,38 @@ const eventsData = [
 ];
 
 const Events = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const cardsPerView = 3; // Show exactly 3 cards
-
-  const handleScroll = (direction) => {
-    if (direction === "right") {
-      setStartIndex((prev) => Math.min(prev + cardsPerView, eventsData.length - cardsPerView));
-    } else if (direction === "left") {
-      setStartIndex((prev) => Math.max(prev - cardsPerView, 0));
-    }
-  };
-
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-[#ac92dd] py-[100px] relative">
-      
-      
-      <div className="w-[210px] h-[38px] text-[12.5px] font-semibold flex items-center justify-center rounded-2xl bg-[#b0a5e9] text-[#fefeff]">
+    <div className="w-full flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-blue-400 py-[100px] relative">
+      <div className="w-[210px] h-[38px] text-[12.5px] font-semibold flex items-center justify-center rounded-2xl bg-white text-gray-800 shadow-md">
         STIMULATED TO TAKE PART IN?
       </div>
-
       <h1 className="text-[36px] font-bold text-white mt-4">Upcoming Events</h1>
-
-      <div className="relative w-[85%] overflow-hidden mt-5 flex items-center justify-center">
-        
-        <button
-          className="absolute left-0 bg-blue-600 text-white p-3 rounded-full"
-          onClick={() => handleScroll("left")}
+      <div className="w-[100%] mt-5 ">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={3}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            1024: { slidesPerView: 3 },
+            768: { slidesPerView: 2 },
+            640: { slidesPerView: 1 },
+          }}
+          className="py-5"
         >
-          <i className="fa-solid fa-arrow-left text-[20px]"></i>
-        </button>
-
-        
-        <div className="flex space-x-7 transition-transform duration-300 ease-in-out">
-          {eventsData.slice(startIndex, startIndex + cardsPerView).map((event) => (
-            <div key={event.id} className="w-[380px] bg-white rounded-xl shadow-lg p-7 flex-shrink-0">
-              <img className="w-full h-[250px] rounded-lg object-cover" src={event.image} alt={event.title} />
-              <div className="mt-4 text-gray-600 text-sm">{event.location} • {event.time}</div>
-              <h2 className="font-bold text-xl mt-2">{event.title}</h2>
-              <button className="text-sm mt-4 py-2 px-5 border rounded-lg border-gray-300 text-gray-800">Get Ticket</button>
-            </div>
+          {eventsData.map((event) => (
+            <SwiperSlide key={event.id}>
+              <div className="bg-white rounded-xl shadow-lg p-7 flex flex-col items-center">
+                <img className="w-full h-[250px] rounded-lg object-cover" src={event.image} alt={event.title} />
+                <div className="mt-4 text-gray-600 text-sm">{event.location} • {event.time}</div>
+                <h2 className="font-bold text-xl mt-2 text-center">{event.title}</h2>
+                <button className="text-sm mt-4 py-2 px-5 border rounded-lg border-gray-300 text-gray-800 hover:bg-gray-200">Get Ticket</button>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
-
-
-        <button
-          className="absolute right-0 bg-blue-600 text-white p-3 rounded-full"
-          onClick={() => handleScroll("right")}
-        >
-          <i className="fa-solid fa-arrow-right text-[20px]"></i>
-        </button>
+        </Swiper>
       </div>
     </div>
   );

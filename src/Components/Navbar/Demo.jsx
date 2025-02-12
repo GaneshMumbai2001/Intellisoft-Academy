@@ -17,8 +17,10 @@ function Demo() {
       <div className="flex justify-between items-center px-5 py-2 text-xs text-gray-600 max-w-[1000px] mx-auto">
         <div>Have any Question?</div>
         <div className="flex gap-4">
-          <span>example@gmail.com</span>
-          <span>+1-202-555-0174</span>
+          <span className="cursor-pointer ">📩
+          contact@intellisoft.in</span>
+          <span>📞
+          +91 97051 34869</span>
         </div>
         <div className="flex gap-4 items-center relative">
           <div className="relative">

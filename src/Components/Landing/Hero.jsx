@@ -12,6 +12,7 @@ import popularImg2 from "/landing/popularImg2.png";
 import popularImg3 from "/landing/popularImg3.png";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const cardsData = [
   {
@@ -86,9 +87,9 @@ const Hero = () => {
               Velit officia consequat.
             </span>
           </p>
-          <button className=" bg-gradient-to-r from-[#4e5aed] via-[#b967e7] to-[#4e5aed] ml-[20px] mt-[55px] h-[45px]  rounded-xl w-[145px] flex items-center justify-center text-[white]">
+          <Link to="/courses" className=" bg-gradient-to-r from-[#4e5aed] via-[#b967e7] to-[#4e5aed] ml-[20px] mt-[55px] h-[45px]  rounded-xl w-[145px] flex items-center justify-center text-[white]">
             View Course
-          </button>
+          </Link>
         </div>
 
         <div className="  mt-[30px] flex  py-[60px] lg:py-[5px] w-[60%]">

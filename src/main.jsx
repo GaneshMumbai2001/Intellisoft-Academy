@@ -15,8 +15,12 @@ import SignUp from "./Pages/SignUp.jsx";
 import LoginFormAll from "./Pages/LoginFormAll.jsx";
 import Landing from "./Pages/Landing.jsx"
 import React from "./Pages/React.jsx"
-import Courseinfo from "./Pages/Courseinfo.jsx"
+import CourseBuy from "./Pages/CourseBuy.jsx"
 import LoginForm from "./Pages/LoginFormAll.jsx";
+import Artpage from "./Pages/ArtPage.jsx"
+import BitcoinPage from "./Pages/BitcoinPage.jsx"
+import CorePage from "./Pages/CorePage.jsx"
+import LanguagecPage from "./Pages/LanguagecPage.jsx"
 
 const router = createBrowserRouter([
   {
@@ -29,9 +33,13 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/courses", element: <Course /> },
       { path: "/landing", element: <Landing/> },
-      { path: "/courseinfo", element: <Courseinfo/> },
+      { path: "/coursebuy", element: <CourseBuy/> },
       { path: "/react", element: <React/> },
       { path: "/signup", element: <SignUp/> },
+      { path: "/artpage", element: <Artpage/> },
+      { path: "/bitcoinpage", element: <BitcoinPage/> },
+      { path: "/corepage", element: <CorePage/> },
+      { path: "/Language-course-page", element: <LanguagecPage/> },
       // { path: "/signup/admin", element: <SignUpAdmin /> },
       // { path: "/signup/instructor", element: <SignUpInstructor /> },
       // { path: "/signup/user", element: <SignUpUser /> },

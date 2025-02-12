@@ -1,201 +1,217 @@
+// import React, { useEffect, useRef } from "react";
+// import scrollProfile1 from "/landing/scrollProfile1.png";
+// import scrollProfile2 from "/landing/scrollProfile2.png";
+// import faceBookLogo from "/landing/facebookLogo.png";
+// import pLogo from "/landing/pLogo.png";
+// import oLogo from "/landing/oLogo.png";
+
+// const testimonials = [
+//   {
+//     image: faceBookLogo,
+//     text: "Histudy education, vulputate at sapien sit amet, auctor iaculis lorem.",
+//     profileImage: scrollProfile2,
+//     author: "Marketing",
+//     gradient: false,
+//   },
+//   {
+//     image: pLogo,
+//     text: "Histudy education, vulputate at sapien sit amet, auctor iaculis lorem.",
+//     profileImage: scrollProfile1,
+//     author: "Marketing",
+//     gradient: true,
+//   },
+//   {
+//     image: oLogo,
+//     text: "Like this histudy, vulputate at sapien sit amet, auctor iaculis lorem.",
+//     profileImage: scrollProfile1,
+//     author: "Marketing",
+//     gradient: true,
+//   },
+// ];
+
+// const AutoScrollContainer = ({ children }) => {
+//   const containerRef = useRef(null);
+
+//   useEffect(() => {
+//     const scroll = () => {
+//       if (containerRef.current) {
+//         containerRef.current.scrollLeft += 370;
+//         if (
+//           containerRef.current.scrollLeft >=
+//           containerRef.current.scrollWidth - containerRef.current.clientWidth
+//         ) {
+//           containerRef.current.scrollLeft = 0;
+//         }
+//       }
+//     };
+    
+//     const scrollInterval = setInterval(scroll, 3000);
+//     return () => clearInterval(scrollInterval);
+//   }, []);
+
+//   return (
+//     <div ref={containerRef} className="mt-12 w-full flex justify-center overflow-x-auto scroll-smooth">
+//       <div className="flex flex-nowrap">{children}</div>
+//     </div>
+//   );
+// };
+
+// const Education = () => {
+//   return (
+//     <div className="w-full flex flex-col items-center py-12">
+//       <div className="text-xs font-semibold rounded-xl bg-[#e4e9fd] text-[#2f56ef] px-4 py-1 mt-12">
+//         EDUCATION FOR EVERYONE
+//       </div>
+//       <div className="mt-6 text-center sm:text-4xl lg:text-5xl font-bold text-[#1a2235] tracking-wider px-4">
+//         People like HiStudy education. No joking - here's the proof!
+//       </div>
+
+//       {/* Top auto-scrolling testimonials */}
+//       <AutoScrollContainer>
+//         {testimonials.map((testimonial, index) => (
+//           <div key={index} className={`w-[370px] rounded-lg shadow-md m-4 ${testimonial.gradient ? 'bg-gradient-to-r from-[#4d5aee] to-[#ae65e8]' : 'bg-white'}`}>
+//             <div className="w-[90%] m-auto flex flex-col items-center py-6">
+//               <img className="w-16 h-16" src={testimonial.image} alt={`testimonial ${index + 1} logo`} />
+//               <p className="mt-4 text-sm text-black text-center">{testimonial.text}</p>
+//               <div className="flex items-center justify-between mt-4 w-full">
+//                 <img className="w-8 h-8 rounded-full" src={testimonial.profileImage} alt={`testimonial ${index + 1} profile`} />
+//                 <p className="text-black text-sm">{testimonial.author}</p>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </AutoScrollContainer>
+
+//       {/* Bottom auto-scrolling testimonials */}
+//       <AutoScrollContainer>
+//         {testimonials.map((testimonial, index) => (
+//           <div key={index} className={`w-[370px] rounded-lg shadow-md m-4 ${testimonial.gradient ? 'bg-gradient-to-r from-[#4d5aee] to-[#ae65e8]' : 'bg-white'}`}>
+//             <div className="w-[90%] m-auto flex flex-col items-center py-6">
+//               <img className="w-16 h-16" src={testimonial.image} alt={`testimonial ${index + 1} logo`} />
+//               <p className="mt-4 text-sm text-black text-center">{testimonial.text}</p>
+//               <div className="flex items-center justify-between mt-4 w-full">
+//                 <img className="w-8 h-8 rounded-full" src={testimonial.profileImage} alt={`testimonial ${index + 1} profile`} />
+//                 <p className="text-black text-sm">{testimonial.author}</p>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </AutoScrollContainer>
+//     </div>
+//   );
+// };
+
+// export default Education;
 import React from "react";
-import scrollProfile1 from "/landing/scrollProfile1.png";
-import scrollProfile2 from "/landing/scrollProfile2.png";
-import faceBookLogo from "/landing/facebookLogo.png";
-import hugSLogo from "/landing/hubs.png";
-import pLogo from "/landing/pLogo.png";
-import oLogo from "/landing/oLogo.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
+import hubspotLogo from "/landing/scrollProfile1.png";
+import facebookLogo from "/landing/facebookLogo.png";
+import yelpLogo from "/landing/pLogo.png";
+import marketingLogo from "/landing/oLogo.png";
+
+const testimonials = [
+  {
+    id: 1,
+    text: "Like this histudy, vulputate at sapien sit amet, auctor iaculis lorem.",
+    role: "Marketing",
+    logo: marketingLogo,
+    author: "John R, CEO",
+  },
+  {
+    id: 2,
+    text: "Educational template, vulputate at sapien sit amet, auctor iaculis lorem.",
+    role: "Sr Designer",
+    logo: hubspotLogo,
+    author: "Martha Maldonado, CEO",
+  },
+  {
+    id: 3,
+    text: "Online learning, vulputate at sapien sit amet, auctor iaculis lorem.",
+    role: "Executive",
+    logo: facebookLogo,
+    author: "Michael D, CEO",
+  },
+  {
+    id: 4,
+    text: "Our educational, vulputate at sapien sit amet, auctor iaculis lorem.",
+    role: "CEO",
+    logo: yelpLogo,
+    author: "Valerie J, CEO",
+    bgColor: "bg-gradient-to-r from-blue-500 to-pink-500",
+  },
+  {
+    id: 5,
+    text: "New testimonial, demonstrating additional card.",
+    role: "Developer",
+    logo: marketingLogo,
+    author: "Chris P, CTO",
+  },
+  {
+    id: 6,
+    text: "Another testimonial, added for variety.",
+    role: "Manager",
+    logo: hubspotLogo,
+    author: "Alex K, COO",
+  },
+];
 
 const Education = () => {
   return (
-    <div  className="w-full flex flex-col items-center  ">
-      <div className="w-[170px] h-[27px] text-[11px] font-semibold flex items-center justify-center rounded-xl bg-[#e4e9fd] text-[#2f56ef] mt-[60px]">
-        EDUCATION FOR EVERYONE
-      </div>
-      <div className="mt-[20px] sm:w-[70%] sm:text-[36px]   lg:text-[38px] md:w-[60%] lg:w-[50%]  font-bold flex flex-col items-center">
-        <p className="text-[#1a2235] tracking-wider ">
-          People like HiStudy education. No joking - here's the proof!
-        </p>
-      </div>
-
-      
-
-      <div className="mt-[50px] w-full flex justify-center">
-        <div className="w-[99%] flex items-center overflow-auto ">
-          <div className="flex items-center whitespace-nowrap over">
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf]  m-[15px]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={faceBookLogo} alt="faceBookLogo" />
-                <p className="mt-[10px] text-[black]  text-[11px]  whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile2} alt="scrollProfile2Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
+    <div className="w-full py-10 bg-gray-100">
+      <h2 className="text-center text-2xl font-bold mb-6">
+        People like histudy education. No joking – here’s the proof!
+      </h2>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        modules={[Autoplay, Pagination]}
+        className="w-[100%] mx-auto"
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide key={testimonial.id} className="m-2">
+            <div className={`p-6 bg-white shadow-lg rounded-xl text-center ${testimonial.bgColor || ''}`}>
+              <img src={testimonial.logo} alt="Company Logo" className="w-10 mx-auto mb-4" />
+              <p className="text-gray-700 italic">{testimonial.text}</p>
+              <h4 className="font-semibold mt-4">{testimonial.role}</h4>
+              <p className="text-sm text-gray-500">{testimonial.author}</p>
             </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8] m-[15px]  ">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={pLogo} alt="pLogoImg" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        modules={[Autoplay, Pagination]}
+        className="w-[100%] mx-auto"
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide key={testimonial.id} className="m-2">
+            <div className={`p-6 bg-white shadow-lg rounded-xl text-center ${testimonial.bgColor || ''}`}>
+              <img src={testimonial.logo} alt="Company Logo" className="w-10 mx-auto mb-4" />
+              <p className="text-gray-700 italic">{testimonial.text}</p>
+              <h4 className="font-semibold mt-4">{testimonial.role}</h4>
+              <p className="text-sm text-gray-500">{testimonial.author}</p>
             </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf]  m-[15px]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={faceBookLogo} alt="faceBookLogo" />
-                <p className="mt-[10px] text-[black]  text-[11px]  whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile2} alt="scrollProfile2Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8] m-[15px]  ">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={pLogo} alt="pLogoImg" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf]  m-[15px]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={faceBookLogo} alt="faceBookLogo" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile2} alt="scrollProfile2Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] m-[15px] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={oLogo} alt="oLogo" />
-                <p className="mt-[15px] text-[black]  text-[11px] whitespace-normal">
-                  Like this histudy, vulputate at sapien sit amet,auctor iaculis
-                  lorem. In vel hendrerit nisi. Vestibulum eget risus velit.
-                </p>
-
-                <div className="flex items-center justify-between mt-[14px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className="text-[#c6c4ff]">Marketing</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-[50px] w-full flex justify-center">
-        <div className="w-[99%] flex items-center overflow-x-auto ">
-          <div className="flex items-center whitespace-nowrap over">
-            
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8] m-[15px]  ">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={pLogo} alt="pLogoImg" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf]  m-[15px]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={faceBookLogo} alt="faceBookLogo" />
-                <p className="mt-[10px] text-[black]  text-[11px]  whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile2} alt="scrollProfile2Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8] m-[15px]  ">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={pLogo} alt="pLogoImg" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf]  m-[15px]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={faceBookLogo} alt="faceBookLogo" />
-                <p className="mt-[10px] text-[black]  text-[11px] whitespace-normal">
-                  Histudy education, vulputate at sapien sit amet, auctor
-                  iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus
-                  velit..
-                </p>
-                <div className="flex items-center justify-between mt-[10px]   w-[120px]">
-                  <img src={scrollProfile2} alt="scrollProfile2Img" />
-                  <p className=" text-[black]">Marketing</p>
-                </div>
-              </div>
-            </div>
-            <div className="w-[370px] rounded-lg shadow-[0px_0px_6px_#bfbfbf] m-[15px] bg-gradient-to-r from-[#4d5aee] to-[#ae65e8]">
-              <div className="w-[90%] m-auto flex flex-col items-center  my-[20px]">
-                <img className="" src={oLogo} alt="oLogo" />
-                <p className="mt-[15px] text-[black]  text-[11px] whitespace-normal">
-                  Like this histudy, vulputate at sapien sit amet,auctor iaculis
-                  lorem. In vel hendrerit nisi. Vestibulum eget risus velit.
-                </p>
-
-                <div className="flex items-center justify-between mt-[14px]   w-[120px]">
-                  <img src={scrollProfile1} alt="scrollProfile1Img" />
-                  <p className="text-[#c6c4ff]">Marketing</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper> 
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import Coursebundle from '../Components/Coursebundle/CourseBundle';
 
-function Courseinfo() {
+function CourseBuy() {
     return (
         <div>
             <Coursebundle/>
@@ -9,6 +9,6 @@ function Courseinfo() {
     );
 }
 
-export default Courseinfo;
+export default CourseBuy;
 
 

@@ -1,38 +1,3 @@
-// import React from "react";
-// import courseImage from "/public/courses/c1.png"; // Update the path accordingly
-
-// const CourseBundle = () => {
-//     return (
-//         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-//           <h1 className="text-2xl font-bold">The Ultimate Course Bundle</h1>
-//           <p className="text-gray-600">
-//             By <span className="text-blue-600 font-semibold">hemal hemal</span>
-//           </p>
-//           <p className="text-sm text-gray-500">
-//             Categories: Art & Humanities, IT, Mobile Application, Outline, PHP, Physical Fitness, React, Web Design
-//           </p>
-          // <div className="mt-4">
-          //   <img src={courseImage} alt="Course Bundle" className="w-full rounded-lg" />
-          // </div>
-//           <div className="mt-4">
-//             <h2 className="text-xl font-semibold">About Course</h2>
-//             <p className="text-gray-700">
-//               Unlock the full potential of web development with our comprehensive course bundle. From foundational HTML and CSS to advanced JavaScript frameworks and responsive design, this all-inclusive package is designed to equip you with the skills needed to build stunning, professional websites. Perfect for beginners and seasoned developers alike, our expertly crafted courses ensure you stay ahead in the ever-evolving world of web development. Start your journey today!
-//             </p>
-//           </div>
-//           <div className="mt-4">
-//             <h2 className="text-xl font-semibold">Benefits of the course</h2>
-//             <ul className="list-disc list-inside text-gray-700">
-//               <li>✔ Learn React from basics to advanced, mastering UI building, state management, and API...</li>
-//             </ul>
-//           </div>
-         
-//         </div>
-//    );
-// };
-
-// export default CourseBundle;
-
 import React from "react";
 
 const courses = [
