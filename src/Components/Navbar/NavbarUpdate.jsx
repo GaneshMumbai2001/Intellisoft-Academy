@@ -323,9 +323,8 @@ console.log(filteredCourses);
                                                 ))}
                                             </ul>
                                         </div>
-
                                         <div><h3 className="text-gray-500 font-semibold uppercase text-sm mb-4"></h3></div>
-                                    </div>
+                                   </div>
                                 </div>
                             </div>
                         </div>
