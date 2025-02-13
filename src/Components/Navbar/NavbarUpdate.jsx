@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaShoppingCart, FaUser } from "react-icons/fa";
 import intellisoftLogo from '/public/navbar/intellisoft.png';
+import { Link } from 'react-router-dom';
 import demoImage from "/public/navbar/b1.png";
 import demoImage2 from "/public/navbar/b2.png";
 import demoImage3 from "/public/navbar/b3.png";
@@ -56,28 +57,141 @@ const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const helpItems = ["Documentation", "Submit a Ticket", "Customization", "What’s New", "Intro Video", "Pre-sale Question",];
+  
+   
     const chunkArray = (arr, chunkSize) => {
-        const result = [];
-        for (let i = 0; i < arr.length; i += chunkSize) {
-            result.push(arr.slice(i, i + chunkSize));
-        }
-        return result;
-    };
-    const demoRows = chunkArray(demoData, 4);
+      const result = [];
+      for (let i = 0; i < arr.length; i += chunkSize) {
+          result.push(arr.slice(i, i + chunkSize));
+      }
+      return result;
+  };
+  
+  // help button`
+  const helpItems = [
+      { label: "Documentation", link: "/" },
+      { label: "Submit a Ticket", link: "/" },
+      { label: "Customization", link: "https://example.com/customization" },
+      { label: "What’s New", link: "https://example.com/whats-new" },
+      { label: "Intro Video", link: "https://example.com/intro-video" },
+      { label: "Pre-sale Question", link: "https://example.com/pre-sale-question" },
+  ];
+  
+  // Call `chunkArray`
+  const chunkedHelpItems = chunkArray(helpItems, 2);
+   // help button end
 
-    const courseLayoutLeft = ['Filter One Toggle', 'Filter One Open', 'Filter Two Toggle', 'Filter Two Open', 'Course With Tab', 'Course With Tab Two', 'Course Tab Two Open',];
-    const courseLayoutRight = ['Course Masonry', 'Course Left Sidebar', 'Course Right Sidebar', 'Course Details', { name: 'Course Details Two', new: true }, { name: 'Course Lesson', new: true }, { name: 'Course Details Three', new: true },];
+  
 
-    const getStartedLinks = ['About Us', 'About Us 02', 'Event Grid', 'Event List', 'Event Sidebar', 'Event Details', 'Academy Gallery', 'Admission Guide',];
-    const exploreLinks = ['Profile', 'Contact Us', 'Instructor', 'FAQs', 'Privacy Policy', '404 Page', 'Maintenance',];
-    const shopLinks = [{ name: 'Shop', badge: 'Sale Anything' }, 'Single Product', 'Cart Page', 'Checkout', { name: 'Wishlist Page', badge: 'Coming Soon' }, 'My Account', 'Login & Register', 'Subscription',];
+   const courseLayoutLeft = [
+    { name: 'Filter One Toggle', link: '/courses' },
+    { name: 'Filter One Open', link: '/courses/filter-one-open' },
+    { name: 'Filter Two Toggle', link: '/courses/filter-two-toggle' },
+    { name: 'Filter Two Open', link: '/courses/filter-two-open' },
+    { name: 'Course With Tab', link: '/courses/course-with-tab' },
+    { name: 'Course With Tab Two', link: '/courses/course-with-tab-two' },
+    { name: 'Course Tab Two Open', link: '/courses/course-tab-two-open' },
+];
 
-    const components = [
-        { title: 'Style Guide', comingSoon: true, items: ['Accordion', 'Advance Tab', 'Brand', 'Button', 'Badge', 'Card', 'Call To Action'], },
-        { title: null, comingSoon: false, items: ['Counter', 'Categories', 'Header Style', 'Newsletter', 'Team', 'Social', 'List Style', 'Gallery'], },
-        { title: null, comingSoon: false, items: ['Pricing', 'Progressbar', 'Testimonial', 'Service', 'Split Area', 'Instagram Style', 'Search Style', '& More Coming'], searchStyleComingSoon: true, },
-    ];
+const courseLayoutRight = [
+    { name: 'Course Masonry', link: '/courses/course-masonry' },
+    { name: 'Course Left Sidebar', link: '/courses/course-left-sidebar' },
+    { name: 'Course Right Sidebar', link: '/courses/course-right-sidebar' },
+    { name: 'Course Details', link: '/courses/course-details' },
+    { name: 'Course Details Two', link: '/courses/course-details-two', new: true },
+    { name: 'Course Lesson', link: '/courses/course-lesson', new: true },
+    { name: 'Course Details Three', link: '/courses/course-details-three', new: true },
+];
+
+// pages link
+const getStartedLinks = [
+  { name: 'About', link: '/about' },
+  { name: 'About Us 02', link: '/pages/about-us-02' },
+  { name: 'Event Grid', link: '/pages/event-grid' },
+  { name: 'Event List', link: '/pages/event-list' },
+  { name: 'Event Sidebar', link: '/pages/event-sidebar' },
+  { name: 'Event Details', link: '/pages/event-details' },
+  { name: 'Academy Gallery', link: '/pages/academy-gallery' },
+  { name: 'Admission Guide', link: '/pages/admission-guide' },
+];
+
+const exploreLinks = [
+  { name: 'Profile', link: '/pages/profile' },
+  { name: 'Contact Us', link: '/pages/contact-us' },
+  { name: 'Instructor', link: '/pages/instructor' },
+  { name: 'FAQs', link: '/pages/faqs' },
+  { name: 'Privacy Policy', link: '/pages/privacy-policy' },
+  { name: '404 Page', link: '/pages/404' },
+  { name: 'Maintenance', link: '/pages/maintenance' },
+];
+
+const shopLinks = [
+  { name: 'Shop', link: '/shop', badge: 'Sale Anything' },
+  { name: 'Single Product', link: '/shop/single-product' },
+  { name: 'Cart Page', link: '/shop/cart' },
+  { name: 'Checkout', link: '/shop/checkout' },
+  { name: 'Wishlist Page', link: '/shop/wishlist', badge: 'Coming Soon' },
+  { name: 'My Account', link: '/shop/my-account' },
+  { name: 'Login & Register', link: '/shop/login-register' },
+  { name: 'Subscription', link: '/shop/subscription' },
+];
+
+// elements link
+
+const elements = [
+  {
+    title: "Typography",
+    items: [
+      { name: "Headings", link: "/headings" },
+      { name: "Paragraphs", link: "/paragraphs" },
+      { name: "Lists", link: "/lists" }
+    ]
+  },
+  {
+    title: "Buttons",
+    items: [
+      { name: "Primary Button", link: "/primary-button" },
+      { name: "Secondary Button", link: "/secondary-button" }
+    ]
+  },
+  {
+    title: "Forms",
+    items: [
+      { name: "Input Fields", link: "/input-fields" },
+      { name: "Checkboxes", link: "/checkboxes" },
+      { name: "Radio Buttons", link: "/radio-buttons" }
+    ]
+  }
+];
+
+// blog link
+
+const blog1 = [
+  { name: "Modern", link: "/about" },
+  { name: "Classic", link: "/blog/classic" },
+  { name: "Minimal", link: "/blog/minimal" }
+];
+
+const blog2 = [
+  { name: "Introduction", link: "/pages/introduction" },
+  { name: "Setup Guide", link: "/pages/setup-guide" },
+  { name: "Tutorials", link: "/pages/tutorials", coming: true }
+];
+
+const actionButtons = [
+  { name: "Get Started", link: "/get-started", icon: comImage }
+];
+
+const filteredCourses = courseLayoutLeft.map(item => item.name.toLowerCase());
+
+console.log(filteredCourses);
+
+
+    // const courseLayoutLeft = ['Filter One Toggle', 'Filter One Open', 'Filter Two Toggle', 'Filter Two Open', 'Course With Tab', 'Course With Tab Two', 'Course Tab Two Open',];
+    // const courseLayoutRight = ['Course Masonry', 'Course Left Sidebar', 'Course Right Sidebar', 'Course Details', { name: 'Course Details Two', new: true }, { name: 'Course Lesson', new: true }, { name: 'Course Details Three', new: true },];
+
+    // pages link
+   
 
     const blogStyles = ['Blog List', 'Blog Grid', 'Blog Grid Minimal', 'Blog With Sidebar', 'Blog Details', 'Post Format Standard', 'Post Format Gallery',];
 
@@ -141,23 +255,26 @@ const Navbar = () => {
                                     <div>
                                         <h2 className="text-gray-500 uppercase text-sm font-semibold mb-4">Course Layout</h2>
                                         <ul className="space-y-3">
-                                            {courseLayoutLeft.map((item, index) => (
-                                                <li key={index} className="text-gray-700 hover:text-indigo-500 cursor-pointer">
-                                                    <a href={`/courses/${item.toLowerCase().replace(/ /g, '-')}`}>{item}</a> {/* Added link here */}
-                                                </li>
-                                            ))}
+                                        {courseLayoutLeft.map((item, index) => (
+                                <li key={index} className="text-gray-700 hover:text-indigo-500 cursor-pointer">
+                                    <a href={item.link}>{item.name}</a>
+                                </li>
+                            ))}
+
                                         </ul>
                                     </div>
 
                                     <div>
                                         <h2 className="text-gray-500 uppercase text-sm font-semibold mb-4">Course Layout</h2>
                                         <ul className="space-y-3">
-                                            {courseLayoutRight.map((item, index) => (
-                                                <li key={index} className={`flex items-center gap-2 text-gray-700 hover:text-indigo-500 cursor-pointer ${item.new ? '' : ''}`}>
-                                                    <a href={`/courses/${(item.name || item).toLowerCase().replace(/ /g, '-')}`}>{item.name || item}</a> {/* Added link here */}
-                                                    {item.new && (<span className="bg-purple-200 text-purple-800 text-xs font-semibold px-2 py-1 rounded-full">New</span>)}
-                                                </li>
-                                            ))}
+                                        {courseLayoutRight.map((item, index) => (
+                                <li key={index} className="flex items-center gap-2 text-gray-700 hover:text-indigo-500 cursor-pointer">
+                                    <a href={item.link}>{item.name}</a>
+                                    {item.new && (
+                                        <span className="bg-purple-200 text-purple-800 text-xs font-semibold px-2 py-1 rounded-full">New</span>
+                                    )}
+                                </li>
+                            ))}
                                         </ul>
                                     </div>
                                 </div>
@@ -176,7 +293,7 @@ const Navbar = () => {
                                             <ul className="space-y-2 text-gray-700">
                                                 {getStartedLinks.map((link, index) => (
                                                     <li key={index}>
-                                                        <a href={`/pages/${link.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600">{link}</a> {/* Added link here */}
+                                                        <a href={link.link} className="hover:text-indigo-600">{link.name}</a>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -187,7 +304,7 @@ const Navbar = () => {
                                             <ul className="space-y-2 text-gray-700">
                                                 {exploreLinks.map((link, index) => (
                                                     <li key={index}>
-                                                        <a href={`/pages/${link.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600">{link}</a> {/* Added link here */}
+                                                        <a href={link.link} className="hover:text-indigo-600">{link.name}</a>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -198,7 +315,7 @@ const Navbar = () => {
                                             <ul className="space-y-2 text-gray-700">
                                                 {shopLinks.map((link, index) => (
                                                     <li key={index}>
-                                                        <a href={`/shop/${(link.name || link).toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600 flex items-center"> {/* Added link here */}
+                                                       <a href={link.link} className="hover:text-indigo-600">{link.name}
                                                             {link.name || link}
                                                             {link.badge && (<span className="ml-2 bg-purple-200 text-purple-700 text-xs px-2 py-1 rounded-full">{link.badge}</span>)}
                                                         </a>
@@ -214,87 +331,110 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <div className="relative leading-5 hover:cursor-pointer group">
-                        Elements
-                        <div className="absolute left-1/2 top-full transform -translate-x-1/2 flex items-center justify-center hidden group-hover:flex w-[590px] z-50">
-                            <div className="bg-gray-100">
-                                <div className="max-w-5xl mx-auto py-8 px-4">
-                                    <div className="grid grid-cols-3 gap-6 text-gray-700">
-                                        {components.map((column, index) => (
-                                            <div key={index} className="py-4">
-                                                {column.title && (<p className="mb-2">{column.title} {column.comingSoon && (<span className="bg-purple-300 text-white px-2 py-1 rounded-full ml-2">Coming Soon</span>)}</p>)}
-                                                {column.items.map((item, itemIndex) => (
-                                                    <p key={itemIndex} className="py-1">
-                                                        <a href={`/elements/${item.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600">{item}</a> {/* Added link here */}
-                                                        {column.searchStyleComingSoon && item === 'Search Style' && (<span className="bg-purple-300 text-white px-2 py-1 rounded-full ml-2">Coming Soon</span>)}
-                                                    </p>
-                                                ))}
-                                            </div>
-                                        ))}
-                                    </div>
+                    
+<div className="relative leading-5 hover:cursor-pointer group">
+  Elements
+    <div className="absolute left-1/2 top-full transform -translate-x-1/2 flex items-center justify-center hidden group-hover:flex w-[590px] z-50">
+      <div className="bg-gray-100">
+        <div className="max-w-5xl mx-auto py-8 px-4">
+          <div className="grid grid-cols-3 gap-6 text-gray-700">
+            {elements.map((column, index) => (
+              <div key={index} className="py-4">
+                {column.title && (
+                  <p className="mb-2">{column.title}</p>
+                )}
+                {column.items.map((item, itemIndex) => (
+                  <p key={itemIndex} className="">
+                    <a href={item.link}>
+                      <button className=" text-black  rounded-md">
+                        {item.name}
+                      </button>
+                    </a>
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center bg-gradient-to-r from-blue-500 to-purple-500 py-2">
+            <a href="#" className="w-full text-white py-2.5 px-5 rounded-lg">Visit Histudy Template</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 
-                                    <div className="mt-8 text-center bg-gradient-to-r from-blue-500 to-purple-500 py-2">
-                                        <a href="#" className="w-full text-white py-2.5 px-5 rounded-lg">Visit Histudy Template</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="relative leading-5 hover:cursor-pointer group">
-                        Blogs
-                        <div className="absolute left-1/2 top-full transform -translate-x-1/2 flex items-center justify-center hidden group-hover:flex w-[480px] z-50">
-                            <div className="bg-gray-100 ">
-                                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
-                                    <div>
-                                        <h2 className="p-2 text-gray-500 font-semibold uppercase text-sm ">Blog Styles</h2>
-                                        <ul className="space-y-2 text-gray-700">
-                                            {blogStyles.map((style, index) => (
-                                                <li key={index} className="p-2">
-                                                    <a href={`/blog/${style.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600">{style}</a> {/* Added link here */}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
+<div className="relative leading-5 hover:cursor-pointer group">
+    Blogs
+    <div className="absolute left-1/2 top-full transform -translate-x-1/2 flex items-center justify-center hidden group-hover:flex w-[480px] z-50">
+      <div className="bg-gray-100 ">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+          <div>
+            <h2 className="p-2 text-gray-500 font-semibold uppercase text-sm">Blog Styles</h2>
+            <ul className="space-y-2 text-gray-700">
+              {blog1.map((style, index) => (
+                <li key={index} className="p-2">
+                  <a href={style.link} className="hover:text-indigo-600">{style.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                                    <div>
-                                        <h2 className="p-2 text-gray-500 font-semibold uppercase text-sm ">Get Started</h2>
-                                        <ul className="space-y-2 text-gray-700">
-                                            {getStartedLinks.map((link, index) => (
-                                                <li key={index} className="p-2 flex items-center">
-                                                    <a href={`/pages/${link.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600 flex items-center"> {/* Added link here */}
-                                                        {link.name || link}
-                                                        {link.coming && (<span className="ml-2 bg-purple-200 text-purple-700 text-xs font-semibold px-2 py-1 rounded-full">Coming</span>)}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
+          <div>
+            <h2 className="p-2 text-gray-500 font-semibold uppercase text-sm">Get Started</h2>
+            <ul className="space-y-2 text-gray-700">
+              {blog2.map((link, index) => (
+                <li key={index} className="p-2 flex items-center">
+                  <a href={link.link} className="hover:text-indigo-600 flex items-center">
+                    {link.name}
+                    {link.coming && (
+                      <span className="ml-2 bg-purple-200 text-purple-700 text-xs font-semibold px-2 py-1 rounded-full">Coming</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                                    <div className="relative bg-blue-100 rounded-lg p-5 text-center">
-                                        <img src={growImage} alt="Grow Skill" className="w-full mt-0 rounded-lg" />
-                                        <button className="mt-4 bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md font-semibold flex items-center justify-center mx-auto">
-                                            <img src={comImage} alt="Get Started Icon" className="w-5 h-5 mr-2" />
-                                            Get Started
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div className="relative bg-blue-100 rounded-lg p-5 text-center">
+            <img src={growImage} alt="Grow Skill" className="w-full mt-0 rounded-lg" />
+            {actionButtons.map((button, index) => (
+              <a key={index} href={button.link}>
+                <button className="mt-4 bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md font-semibold flex items-center justify-center mx-auto">
+                  <img src={button.icon} alt="{button.name} Icon" className="w-5 h-5 mr-2" />
+                  {button.name}
+                </button>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                    <div className="relative leading-5 hover:cursor-pointer group">
-                        Help
-                        <div className="absolute hidden group-hover:block w-[200px] z-50">
-                            <div className="">
-                                {helpItems.map((item, index) => (
-                                    <div key={index} className="p-2 bg-gray-100">
-                                        <a href={`/help/${item.toLowerCase().replace(/ /g, '-')}`} className="hover:text-indigo-600">{item}</a> {/* Added link here */}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                   
+<div className="relative leading-5 hover:cursor-pointer group">
+    Help
+    <div className="absolute hidden group-hover:block w-[200px] z-50 bg-white shadow-lg p-2">
+        {chunkedHelpItems.map((chunk, chunkIndex) => (
+            <div key={chunkIndex} className="flex flex-col">
+                {chunk.map((item, index) => (
+                    <a 
+                        key={index} 
+                        href={item.link} 
+                        target={item.link.startsWith("http") ? "_blank" : "_self"} 
+                        rel="noopener noreferrer"
+                        className="p-2 block hover:text-indigo-600"
+                    >
+                        {item.label}
+                    </a>
+                ))}
+            </div>
+        ))}
+    </div>
+</div>
+
+
                 </nav>
 
 
