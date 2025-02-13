@@ -457,7 +457,7 @@ const Navbar = () => {
         href="#"
         className="w-full text-white py-2.5 px-5 rounded-lg"
       >
-        Visit Histudy Template
+        Visit Intellisoft Template
       </a>
     </div>
   </div>

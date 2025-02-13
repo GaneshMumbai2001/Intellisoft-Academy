@@ -42,7 +42,7 @@ const SignupSection = () => {
           </div>
           <h1 className="text-[32.1px] font-bold mt-4">Free Resources Learning English for Beginner</h1>
           <p className="text-[14.88px] mt-2">
-            Learning new technology, data science, university, communicate to the global world and build a bright future with our histudy.
+            Learning new technology, data science, university, communicate to the global world and build a bright future with our Intellisoft.
           </p>
           <div className="flex flex-wrap mt-6 justify-center sm:justify-start">
             {countdownData.map((item, index) => (

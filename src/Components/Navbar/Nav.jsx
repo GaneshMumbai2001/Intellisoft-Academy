@@ -27,7 +27,7 @@ function Navbar() {
       {/* Top Bar */}
       <div className="bg-gray-900 text-white text-xs flex justify-between items-center px-6 py-2">
         <span className="bg-blue-600 text-white px-2 py-1 rounded text-[10px]">Hot</span>
-        <p className="flex-1 text-center">👋 Intro price. Get Histudy for Big Sale -95% off.</p>
+        <p className="flex-1 text-center">👋 Intro price. Get Intellisoft for Big Sale -95% off.</p>
         <div className="flex gap-3 items-center">
           <FaFacebook />
           <FaInstagram />

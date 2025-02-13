@@ -5,7 +5,7 @@ const Subscribe =()=>{
     return (
         <div className="w-full flex flex-col items-center bg-[#2f56ef] px-4">
             <button className="text-white mt-[90px] w-[170px] h-[30px] bg-[#4b6df1] rounded-xl text-[11px]">
-                GET LATEST HISTUDY UPDATE
+                GET LATEST INTELLISOFT UPDATE
             </button>
             <h1 className="font-bold text-[24px] sm:text-[30px] mt-[10px] text-[#feffff] text-center">
                 Subscribe Our Newsletter

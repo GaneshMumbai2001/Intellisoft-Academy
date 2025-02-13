@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react"; // Using lucide-react for rating stars
+import { Link } from 'react-router-dom';
 
 const ArtGridView = ({ courses }) => {
   return (
@@ -53,9 +54,9 @@ const ArtGridView = ({ courses }) => {
               <div className="flex justify-between items-center mt-4">
                 <span className="text-gray-500 line-through">${course.price}</span>
                 <span className="text-blue-600 font-bold">${course.curPrice}</span>
-                <button className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:bg-blue-700 transition">
+                <Link to="/coursebuy" className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:bg-blue-700 transition">
                   Add to cart
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))

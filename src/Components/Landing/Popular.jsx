@@ -20,12 +20,12 @@ const initialCourses = [
   },
   {
     id: 2,
-    name: "Basics of HiStudy Theme",
+    name: "Basics of Intellisoft Theme",
     lessons: 14,
     students: 4,
     price: "Free",
     originalPrice: null,
-    description: "HiStudy Education Theme by Rainbow-Themes is a user-friendly WordPress Tool designed for.",
+    description: "Intellisoft Education Theme by Rainbow-Themes is a user-friendly WordPress Tool designed for.",
     image: popularImg2,
     author: "Rainbow Themes",
     category: "Core Function"
@@ -76,7 +76,7 @@ const Popular = () => {
 
       <div className="mt-[20px] sm:w-[50%] sm:text-[42px] lg:text-[42px] md:w-[60%] lg:w-[40%] font-bold flex flex-col items-center">
         <p className="text-[#1a2235] tracking-wider">
-          Histudy Course students{" "}
+          Intellisoft Course students{" "}
           <span className="text-[#1a2235]">can join with us</span>
         </p>
       </div>

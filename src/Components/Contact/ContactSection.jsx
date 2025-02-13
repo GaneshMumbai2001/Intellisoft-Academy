@@ -29,7 +29,7 @@ function ContactSection() {
                     CONTACT US
                   </div>
                   <div className=" mt-2.5 w-full text-4xl font-bold leading-10 text-gray-800 max-md:px-5 max-md:max-w-full">
-                    Histudy Course Contact
+                    Intellisoft Course Contact
                     <br />
                     can join with us.
                   </div>

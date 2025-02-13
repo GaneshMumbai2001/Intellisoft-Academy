@@ -77,7 +77,7 @@ const AboutUsperson = () => {
             Know About Us
           </p>
           <h2 className="text-[32.1px] font-bold text-gray-900 my-2">
-            Know About Histudy Learning Platform
+            Know About Intellisoft Learning Platform
           </h2>
           <p className="text-[13.5px] text-gray-600 text-base">
             Far far away, behind the word mountains, far from the countries

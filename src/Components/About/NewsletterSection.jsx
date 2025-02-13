@@ -30,7 +30,7 @@ const NewsletterSection = ({
       <div className="newsletter-content">
         <motion.div className="btn-update" variants={fadeInLeft}>
           <button className="update text-[9.84px] font-bold uppercase tracking-wide px-[15px] py-[8px] rounded-2xl bg-[#04040437]">
-            GET LATEST HISTUDY UPDATE
+            GET LATEST INTELLISOFT UPDATE
           </button>
         </motion.div>
         

@@ -14,7 +14,7 @@ const movies = [
     title: 'Pearl B. Hill',
     director: 'John Doe',
     // shortDescription: 'hi iam in working 2 month and internship',
-    longDescription: 'Like this histudy, vulputate at sapien sit amet, auctor iaculis lorem.',
+    longDescription: 'Like this Intellisoft, vulputate at sapien sit amet, auctor iaculis lorem.',
     poster: MovieImage1,
     directorImage: MovieImage2,
     rating: 5,
@@ -54,7 +54,7 @@ const movies = [
     title: 'Michael D. Lovelady',
     director: 'Emily White',
     // shortDescription: 'A heartwarming story of family and belonging.',
-    longDescription: 'Histudy education, vulputate at sapien sit amet, auctor iaculis lorem.',
+    longDescription: 'Intellisoft education, vulputate at sapien sit amet, auctor iaculis lorem.',
     poster: MovieImage5,
     directorImage: MovieImage2,
     rating: 3,
@@ -108,7 +108,7 @@ const LearnersSay = () => {
           <div className="md:w-1/4 w-full p-5 rounded-lg">
             <h2 className="text-[32.36px] font-bold mb-3">What My Learners <span className="text-purple-500">Say</span></h2>
             <p className="text-[13.29px] mb-4 text-gray-600">
-              Learning communication to the global world and building a bright future with our histudy.
+              Learning communication to the global world and building a bright future with our Intellisoft.
             </p>
             <Link
               to="#learn more"

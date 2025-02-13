@@ -32,7 +32,7 @@ const BitcoinPage = () => {
       totalLessons: 10,
       enrolledStudents: 45,
       description:
-        "Histudy is elegant theme.",
+        "Intellisoft is elegant theme.",
      price: "Free",
       curPrice: "",
       instructor: {

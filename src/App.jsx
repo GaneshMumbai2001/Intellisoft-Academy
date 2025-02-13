@@ -5,6 +5,7 @@ import NavbarUpdate from "../src/Components/Navbar/NavbarUpdate.jsx";
 import Footer from "./Pages/Footer.jsx";
 // import Demo from "../src/Components/Navbar/Demo.jsx";
 import Nav from "../src/Components/Navbar/Nav.jsx";
+import BackToTop from "./Components/UpwardArrow/BackToTop.jsx";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       {/* <Navbar /> */}
       <NavbarUpdate/>
       {/* <Nav/> */}
+      <BackToTop/>
       <Outlet />
       <Footer />
     </>
