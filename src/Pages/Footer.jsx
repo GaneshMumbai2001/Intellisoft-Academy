@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const usefulLinks = [
@@ -45,7 +46,7 @@ const Footer = () => {
           whileTap={{ scale: 0.95 }}
           className="mt-4 px-5 py-2 border-2 border-gray-800 rounded-full shadow-md text-gray-800 bg-white hover:bg-gray-100 transition"
         >
-          Contact With Us
+          <Link to="/contact">Contact With Us </Link> 
         </motion.button>
       </div>
       
