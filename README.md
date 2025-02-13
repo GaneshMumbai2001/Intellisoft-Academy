@@ -1,2 +1,2 @@
 # Intellisoft_frontend
-# IntellisoftAcademy-
+# IntellisoftAcademy by the team Intellisoft
