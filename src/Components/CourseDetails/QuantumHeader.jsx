@@ -13,7 +13,7 @@ const QuantumHeader = ({ setView, view, setSearchQuery }) => {
       className="py-10 md:py-20 w-full flex justify-center bg-gradient-to-b from-[#f1eff3] via-[#2f55ef62] to-[#2F57EF]"
     >
       <section className="w-full max-w-6xl px-4  text-black">
-        <nav className="text-xs md:text-sm text-black">Home .IT</nav>
+        <nav className="text-xs md:text-sm text-black">Home .Quantum Chemistry</nav>
 
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -21,7 +21,7 @@ const QuantumHeader = ({ setView, view, setSearchQuery }) => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 my-4"
         >
-          <h1 className="text-2xl md:text-3xl font-bold  text-black">IT</h1>
+          <h1 className="text-2xl md:text-3xl font-bold  text-black">Quantum Chemistry</h1>
           <span className="text-xs md:text-sm bg-white/20 text-black px-3 py-1 rounded-full">
             {totalCourses} Courses
           </span>
