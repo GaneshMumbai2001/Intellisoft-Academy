@@ -6,7 +6,7 @@ const translations = {
   en: {
     home: "Home",
     courses: "Courses",
-    react: "React",
+    react: "Basics of Intellisoft Theme",
     courseDescription: "Embark on a comprehensive journey with our React Front To Back course.",
     instructor: "By Rainbow Themes in IT",
   },

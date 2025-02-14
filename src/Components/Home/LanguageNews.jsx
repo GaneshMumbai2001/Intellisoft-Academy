@@ -17,12 +17,12 @@ import c6 from '/home/c6.png';
 
 const LanguageNews = () => {
   const cardData = [
-    { imgSrc: lan1, title: "Basics of Intellisoft Theme", icon: c1, programs: "21 programs", link: "Language-course-page" },
-    { imgSrc: lan2, title: "French Courses", icon: c2, programs: "32 programs", link: "Language-course-page" },
-    { imgSrc: lan3, title: "German Courses", icon: c3, programs: "21 programs", link: "Language-course-page" },
-    { imgSrc: lan4, title: "Italian Courses", icon: c4, programs: "5 programs", link: "Language-course-page" },
-    { imgSrc: lan5, title: "Spanish Courses", icon: c5, programs: "8 programs", link: "Language-course-page" },
-    { imgSrc: lan6, title: "Japanese Courses", icon: c6, programs: "10 programs", link: "Language-course-page" }
+    { imgSrc: lan1, title: "Basics of Intellisoft Theme", icon: c1, programs: "21 programs", link: "IntellisoftTheme" },
+    { imgSrc: lan2, title: "French Courses", icon: c2, programs: "32 programs", link: "frenchcourse" },
+    { imgSrc: lan3, title: "German Courses", icon: c3, programs: "21 programs", link: "germancourse" },
+    { imgSrc: lan4, title: "Italian Courses", icon: c4, programs: "5 programs", link: "italiancourse" },
+    { imgSrc: lan5, title: "Spanish Courses", icon: c5, programs: "8 programs", link: "spanishcourse" },
+    { imgSrc: lan6, title: "Japanese Courses", icon: c6, programs: "10 programs", link: "japanesecourse" }
   ];
 
   return (

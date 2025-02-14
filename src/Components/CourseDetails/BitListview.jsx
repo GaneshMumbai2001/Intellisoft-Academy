@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ArtListView = ({ courses }) => {
+const BitListView = ({ courses }) => {
   return (
     <div className="py-10 flex flex-col items-center">
       <motion.div
@@ -51,4 +51,4 @@ const ArtListView = ({ courses }) => {
   );
 };
 
-export default ArtListView;
+export default BitListView;

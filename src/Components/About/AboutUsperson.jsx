@@ -106,7 +106,7 @@ const AboutUsperson = () => {
 
           {/* Button */}
           <Link
-            to="#"
+            to="/about"
             className="text-[11.72px] inline-block mt-5 px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md transition-all duration-300 transform hover:scale-105"
           >
             More About Us

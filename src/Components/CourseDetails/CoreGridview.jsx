@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react"; // Using lucide-react for rating stars
 
-const ArtGridView = ({ courses }) => {
+const CoreGridView = ({ courses }) => {
   return (
     <div className="py-10 flex flex-col items-center ">
       <motion.div
@@ -67,4 +67,4 @@ const ArtGridView = ({ courses }) => {
   );
 };
 
-export default ArtGridView;
+export default CoreGridView;

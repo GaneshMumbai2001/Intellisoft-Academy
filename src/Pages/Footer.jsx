@@ -3,25 +3,28 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
   const usefulLinks = [
     { name: "About Us", path: "/about" },
-    { name: "Marketplace", path: "/marketplace" },
-    { name: "Gym Coachings", path: "/gym-coachings" },
+    { name: "Landingpage", path: "/landing" },
     { name: "Kindergarden", path: "/kindergarden" },
     { name: "University", path: "/university" },
   ];
+
+  
   const companyLinks = [
     { name: "Contact Us", path: "/contact" },
-    { name: "Technology", path: "/technology" },
+    { name: "Blog", path: "/blog" },
     { name: "Instructor", path: "/instructor" },
     { name: "Pricing", path: "/pricing" },
     { name: "Service", path: "/service" },
   ];
   const legalLinks = [
-    { name: "Terms of service", path: "/terms" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Subscription", path: "/subscription" },
-    { name: "Login & Register", path: "/login-register" },
+    { name: "Terms of service", path: "" },
+    { name: "Privacy Policy", path: "" },
+    { name: "Subscription", path: "" },
+    { name: "Login", path: "/login" },
+    { name: "Register", path: "/signup" },
   ];
 
   return (

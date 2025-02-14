@@ -7,10 +7,10 @@ import co4 from '/home/co4.png';
 
 // Courses Data
 const courses = [
-  { id: 1, image: co1, title: "Art & Humanities", description: "Courses that help beginner designers become true unicorns..", link: "artpage" },
-  { id: 2, image: co2, title: "Bitcoin Forums", description: "Mindset improvement.", link: "bitcoinpage" },
-  { id: 3, image: co3, title: "Core Functions", description: "Courses that help beginner designers become true unicorns...", link: "corepage" },
-  { id: 4, image: co4, title: "All Courses", description: "Software development services.", link: "courses" }
+  { id: 1, image: co1, title: "Web Design", description: "Web App Application", link: "coursebuy1" },
+  { id: 2, image: co2, title: "Personal Development", description: "Mindset improvement.", link: "coursebuy2" },
+  { id: 3, image: co3, title: "IT and Software", description: "Software development services", link: "coursebuy3" },
+  { id: 4, image: co4, title: "Graphic Design", description: "Own Creativity", link: "coursebuy4" }
 ];
 
 const Courses = () => {

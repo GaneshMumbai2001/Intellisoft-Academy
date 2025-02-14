@@ -71,12 +71,12 @@ const LandingPage = () => {
               ))}
             </div>
             <div className="button-container">
-              <Link to="#content" className="text-[11.81px] inline-block m-1">
+              <Link to="/signup" className="text-[11.81px] inline-block m-1">
                 <button className="signup cursor-pointer py-3 px-5 rounded-md bg-gradient-to-r from-[#2F57EF] to-[#B966E7] text-white w-full text-center block sm:w-auto hover:bg-gradient-to-r hover:from-[#2F57EF] hover:via-[#BA66E7BD] hover:to-[#2F57EF] transition-all duration-1000">
                   Sign Up Now
                 </button>
               </Link>
-              <Link to="#content" className="text-[11.72px] inline-block m-1">
+              <Link to="/courses" className="text-[11.72px] inline-block m-1">
                 <button className="find-courses cursor-pointer bg-[#E6E3F1] text-[#192335] border-2 border-[#1923352c] py-3 px-5 rounded-md w-full sm:w-auto hover:text-[#E6E3F1] hover:bg-gradient-to-r hover:from-[#18191e] hover:to-[#040406] transition-all duration-500">
                   Find Courses
                 </button>
