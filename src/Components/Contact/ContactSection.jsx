@@ -5,15 +5,15 @@ function ContactSection() {
   const contactData = [
     {
       title: "Contact Phone Number",
-      items: ["+444 555 666 777", "+222 222 222 333"],
+      items: ["1. Mobile Number: +91 97051 34869"],
     },
     {
       title: "Our Email Address",
-      items: ["contact@gmail.com", "example@gmail.com"],
+      items: ["Email ID: contact@intellisoft.in"],
     },
     {
       title: "Our Location",
-      items: ["5678 Bangla Main Road, cities 580", "GBnagla, example 54786"],
+      items: [" Address (Hyderabad):  Papaiah Yadav Nagar, Ganesh Nagar, Hyderabad- 500034,  Telangana", "Address (Andhra Pradesh): Bestavaripeta, Andhra Pradesh - 523334"],
     },
   ];
 

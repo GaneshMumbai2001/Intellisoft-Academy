@@ -8,6 +8,7 @@ import demoImage2 from "/public/navbar/b2.png";
 import demoImage3 from "/public/navbar/b3.png";
 import demoImage4 from "/public/navbar/b4.png";
 import demoImage5 from "/public/navbar/b5.png";
+import demoImage6 from "/public/navbar/b3.png";
 import c1Image from "/public/navbar/c1.png";
 import growImage from '/public/navbar/grow.png';
 import comImage from '/public/navbar/com.png';
@@ -27,7 +28,7 @@ const Navbar = () => {
         { title: 'React →', image: reactpage, link: '/react' },
         { title: 'Login →', image: loginpage, link: '/login' },],
         [{ title: 'Signup →', image: signuppage, link: '/signup' },
-        { title: 'Demo Start →', image: demoImage5, link: '/demo-start-7' },
+        { title: 'Demo Start →', image: demoImage6, link: '/admin/login' },
         { title: 'Demo Start →', image: demoImage, link: '/demo-start-8' },
         { title: 'Demo Start →', image: demoImage5, link: '/demo-start-9' },]
     ];
@@ -355,7 +356,7 @@ console.log(filteredCourses);
             ))}
           </div>
           <div className="mt-8 text-center bg-gradient-to-r from-blue-500 to-purple-500 py-2">
-            <a href="#" className="w-full text-white py-2.5 px-5 rounded-lg">Visit Histudy Template</a>
+            <a href="#" className="w-full text-white py-2.5 px-5 rounded-lg">Visit Intellisoft Template</a>
           </div>
         </div>
       </div>
