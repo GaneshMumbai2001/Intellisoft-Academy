@@ -1,28 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-=======
-import { Link } from 'react-router-dom';
->>>>>>> 3ebc2c0f250e589c09d6a11f5f562c32ce084010
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-
   const usefulLinks = [
-<<<<<<< HEAD
-    "About Us",
-    "Marketplace",
-    "Gym Coachings",
-    "Kindergarden",
-    "University",
-=======
     { name: "About Us", path: "/about" },
-    { name: "Landingpage", path: "/landing" },
-    { name: "Kindergarden", path: "/kindergarden" },
+    { name: "Landing Page", path: "/landing" },
+    { name: "Kindergarten", path: "/kindergarten" },
     { name: "University", path: "/university" },
->>>>>>> 3ebc2c0f250e589c09d6a11f5f562c32ce084010
   ];
 
-  
   const companyLinks = [
     { name: "Contact Us", path: "/contact" },
     { name: "Blog", path: "/blog" },
@@ -30,177 +17,63 @@ const Footer = () => {
     { name: "Pricing", path: "/pricing" },
     { name: "Service", path: "/service" },
   ];
+
   const legalLinks = [
-    { name: "Terms of service", path: "" },
-    { name: "Privacy Policy", path: "" },
-    { name: "Subscription", path: "" },
+    { name: "Terms of Service", path: "#" },
+    { name: "Privacy Policy", path: "#" },
+    { name: "Subscription", path: "#" },
     { name: "Login", path: "/login" },
     { name: "Register", path: "/signup" },
   ];
 
   return (
-    <motion.div
+    <motion.footer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-<<<<<<< HEAD
-      className="flex flex-col bg-white items-center"
-    >
-      <div className="flex flex-wrap justify-center w-full gap-24 py-10">
-        {/* Company Info Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="flex flex-col items-start max-w-[301px] text-center"
-        >
-          <img
-            src="public/navbar/intellisoft.png"
-            alt="Company Logo"
-            className="w-[114px] object-contain"
-          />
-          <p className="mt-4 text-xs text-gray-500">
-            We're always in search for talented and motivated people. Don't be
-            shy introduce yourself!
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-4 px-5 py-2 border-2 border-gray-800 rounded-full shadow-md text-gray-800 bg-white hover:bg-gray-100 transition"
-          >
-            Contact With Us
-          </motion.button>
-        </motion.div>
-
-        {/* Useful Links Section Styled Like Get Contact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="flex flex-col pt-6 max-w-[217px] text-gray-500"
-        >
-          <div className="text-lg font-bold text-gray-800">Useful Links</div>
-          <div className="mt-4 text-base space-y-3">
-            {usefulLinks.map((link, index) => (
-              <p key={index} className="text-sm font-semibold flex items-center gap-1">
-                🔗 <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-                  {link}
-                </a>
-              </p>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Our Company Section Styled Like Get Contact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          className="flex flex-col pt-6 max-w-[217px] text-gray-500"
-        >
-          <div className="text-lg font-bold text-gray-800">Our Company</div>
-          <div className="mt-4 text-base space-y-3">
-            {companyLinks.map((link, index) => (
-              <p key={index} className="text-sm font-semibold flex items-center gap-1">
-                🏢 <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-                  {link}
-                </a>
-              </p>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col pt-6 max-w-[217px] text-gray-500"
-        >
-          <div className="text-lg font-bold text-gray-800">Get Contact</div>
-          <div className="mt-4 text-base space-y-3">
-            <p className="text-sm font-semibold flex items-center gap-1">
-              📞 <a href="tel:+919705134869" className="text-gray-700 hover:text-blue-600 transition">
-                +91 97051 34869
-              </a>
-            </p>
-            <p className="text-sm font-semibold flex items-center gap-1">
-            📩 <a href="mailto:contact@intellisoft.in" className="text-gray-700 hover:text-blue-600 transition">
-                contact@intellisoft.in
-              </a>
-            </p>
-            <p className="mt-2 text-sm font-semibold flex flex-col text-gray-700">
-              📍 <span>1. Papaiah Yadav Nagar, Ganesh Nagar, Hyderabad- 500034, Telangana</span>
-              <br />
-              📍 <span>2. Bestavaripeta, Andhra Pradesh - 523334</span>
-            </p>
-          </div>
-        </motion.div>
-=======
-      className="flex flex-wrap justify-center w-full bg-white py-10 gap-24 p-2"
+      className="flex flex-wrap justify-center w-full bg-white py-10 gap-18 p-4"
     >
       {/* Company Info */}
       <div className="flex flex-col items-start max-w-[430px]">
         <img
-          src="public/navbar/intellisoft.png"
+          src="/navbar/intellisoft.png"
           alt="Company Logo"
-          className="w-[114px] object-contain"
+          className="w-[120px] object-contain"
         />
-        <p className="mt-4 text-xs text-gray-500">
-          We're always in search for talented and motivated people. Don't be shy introduce yourself!
+        <p className="mt-4 text-sm text-gray-600">
+          We're always looking for talented and motivated people. Don’t be shy—introduce yourself!
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="mt-4 px-5 py-2 border-2 border-gray-800 rounded-full shadow-md text-gray-800 bg-white hover:bg-gray-100 transition"
+          aria-label="Contact Us"
         >
-          <Link to="/contact">Contact With Us </Link> 
+          <Link to="/contact">Contact Us</Link>
         </motion.button>
       </div>
-      
-      {/* Useful Links */}
-      <div className="flex flex-col max-w-[217px] text-gray-500">
-        <div className="text-lg font-bold text-gray-800">Useful Links</div>
-        <div className="mt-4 text-base space-y-3">
-          {usefulLinks.map((link, index) => (
-            <p key={index} className="text-sm font-semibold">
-              <a href={link.path} className="text-gray-700 hover:text-blue-600 transition">
-                {link.name}
-              </a>
-            </p>
-          ))}
-        </div>
-      </div>
 
-      {/* Our Company */}
-      <div className="flex flex-col max-w-[217px] text-gray-500">
-        <div className="text-lg font-bold text-gray-800">Our Company</div>
-        <div className="mt-4 text-base space-y-3">
-          {companyLinks.map((link, index) => (
-            <p key={index} className="text-sm font-semibold">
-              <a href={link.path} className="text-gray-700 hover:text-blue-600 transition">
-                {link.name}
-              </a>
-            </p>
-          ))}
+      {/* Link Sections */}
+      {[{ title: "Useful Links", links: usefulLinks },
+        { title: "Our Company", links: companyLinks },
+        { title: "Legal", links: legalLinks }].map((section, idx) => (
+        <div key={idx} className="flex flex-col max-w-[220px] text-gray-600">
+          <h3 className="text-lg font-bold text-gray-800">{section.title}</h3>
+          <div className="mt-4 space-y-3">
+            {section.links.map((link, index) => (
+              <p key={index} className="text-sm font-semibold">
+                <Link
+                  to={link.path}
+                  className="text-gray-700 hover:text-blue-600 transition cursor-pointer"
+                >
+                  {link.name}
+                </Link>
+              </p>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Legal Links */}
-      <div className="flex flex-col max-w-[217px] text-gray-500">
-        <div className="text-lg font-bold text-gray-800">Legal</div>
-        <div className="mt-4 text-base space-y-3">
-          {legalLinks.map((link, index) => (
-            <p key={index} className="text-sm font-semibold">
-              <a href={link.path} className="text-gray-700 hover:text-blue-600 transition">
-                {link.name}
-              </a>
-            </p>
-          ))}
-        </div>
->>>>>>> 3ebc2c0f250e589c09d6a11f5f562c32ce084010
-      </div>
-    </motion.div>
+      ))}
+    </motion.footer>
   );
 };
 
