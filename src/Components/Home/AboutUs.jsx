@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Link } from 'react-router-dom';
 
 // Keyframe animation
 const upDownAnimation = keyframes`
@@ -7,10 +8,10 @@ const upDownAnimation = keyframes`
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px); /* Moves up 20px */
+    transform: translateY(-20px);
   }
   100% {
-    transform: translateY(20px); /* Moves down 20px */
+    transform: translateY(20px);
   }
 `;
 
@@ -34,7 +35,7 @@ const features = [
 
 const AboutUs = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center m-10">
       <div className="flex flex-wrap bg-white rounded-lg w-full max-w-6xl sm:max-w-8xl">
         {/* Left Side: Images */}
         <div className="box-three w-full md:w-1/2 flex flex-col items-center">
@@ -60,7 +61,7 @@ const AboutUs = () => {
             Know About Us
           </p>
           <h2 className="text-[32.1px] font-bold text-gray-900 my-2">
-            Know About Histudy Learning Platform
+            Know About Intellisoft Learning Platform
           </h2>
           <p className="text-[13.5px] text-gray-600 text-base">
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...
@@ -80,9 +81,11 @@ const AboutUs = () => {
           </div>
 
           {/* Button */}
-          <a href="#" className="text-[11.72px] inline-block mt-5 px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md">
+          <Link to="/about"
+            className="text-[11.72px] inline-block mt-5 px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-md"
+          >
             More About Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>
