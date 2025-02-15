@@ -19,6 +19,15 @@ import Artpage from "./Pages/ArtPage.jsx"
 import BitcoinPage from "./Pages/BitcoinPage.jsx"
 import CorePage from "./Pages/CorePage.jsx"
 import LanguagecPage from "./Pages/LanguagecPage.jsx"
+import FunctionalTraining from "./Pages/FunctionalTraining.jsx"
+import ItPage from "./Pages/ItPage.jsx"
+import QuantumPage from "./Pages/QuantumPage.jsx"
+import IntellisoftTheme from "./Pages/IntellisoftTheme.jsx";
+import FrenchCourses from "./Pages/FrenchCourses.jsx";
+import GermanCourses from "./Pages/GermanCourses.jsx";
+import ItalianCourses from "./Pages/ItalianCourses.jsx";
+import SpanishCourses from "./Pages/SpanishCourses.jsx";
+import JapaneseCourses from "./Pages/JapaneseCourses.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +46,17 @@ const router = createBrowserRouter([
       { path: "/artpage", element: <Artpage/> },
       { path: "/bitcoinpage", element: <BitcoinPage/> },
       { path: "/corepage", element: <CorePage/> },
+      { path: "/functionaltraining", element: <FunctionalTraining /> },
+      { path: "/It", element: <ItPage/> },
+      { path: "/quantumpage", element: <QuantumPage/> },
+      { path: "/frenchcourse", element: <FrenchCourses/> },
+      { path: "/germancourse", element: <GermanCourses/> },
+      { path: "/italiancourse", element: <ItalianCourses/> },
+      { path: "/spanishcourse", element: <SpanishCourses/> },
+      { path: "/japanesecourse", element: <JapaneseCourses/> },
+      { path: "/intellisoftTheme", element: <IntellisoftTheme/> },
       { path: "/Language-course-page", element: <LanguagecPage/> },
+     
       // { path: "/signup/admin", element: <SignUpAdmin /> },
       // { path: "/signup/instructor", element: <SignUpInstructor /> },
       // { path: "/signup/user", element: <SignUpUser /> },

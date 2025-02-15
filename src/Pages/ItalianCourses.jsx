@@ -1,10 +1,10 @@
 import React from 'react';
-import CoursePage from '../Components/LanguageCourse/Japanese/CoursePage'
-import ReactHeader from '../Components/LanguageCourse/Japanese/ReactHeader'
-import CourseInfo from '../Components/LanguageCourse/Japanese/CourseInfo';
-import MoreCourses from '../Components/LanguageCourse/Japanese/MoreCourses'
-import RelatedCourses from '../Components/LanguageCourse/Japanese/RelatedCourses'
-function LangC1({ children }) {
+import CoursePage from '../Components/LanguageCourse/Italian/CoursePage'
+import ReactHeader from '../Components/LanguageCourse/Italian/ReactHeader'
+import CourseInfo from '../Components/LanguageCourse/Italian/CourseInfo';
+import MoreCourses from '../Components/LanguageCourse/Italian/MoreCourses'
+import RelatedCourses from '../Components/LanguageCourse/Italian/RelatedCourses'
+function ItalianCourses({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">
    
@@ -18,4 +18,4 @@ function LangC1({ children }) {
   );
 }
 
-export default LangC1;
+export default ItalianCourses;

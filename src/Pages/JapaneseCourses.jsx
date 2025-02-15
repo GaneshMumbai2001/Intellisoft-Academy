@@ -4,7 +4,7 @@ import ReactHeader from '../Components/LanguageCourse/Japanese/ReactHeader'
 import CourseInfo from '../Components/LanguageCourse/Japanese/CourseInfo';
 import MoreCourses from '../Components/LanguageCourse/Japanese/MoreCourses'
 import RelatedCourses from '../Components/LanguageCourse/Japanese/RelatedCourses'
-function LangC1({ children }) {
+function JapaneseCourses({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">
    
@@ -18,4 +18,4 @@ function LangC1({ children }) {
   );
 }
 
-export default LangC1;
+export default JapaneseCourses;
