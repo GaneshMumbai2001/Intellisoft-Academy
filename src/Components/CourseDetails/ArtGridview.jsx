@@ -21,6 +21,8 @@ const ArtGridView = ({ courses }) => {
               key={index}
               className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105 m-5"
             >
+              <Link to={`/pages/${course.id}`} className="">
+           
               {/* Course Image */}
               <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
 
@@ -58,6 +60,7 @@ const ArtGridView = ({ courses }) => {
                   Add to cart
                 </Link>
               </div>
+              </Link>
             </motion.div>
           ))
         ) : (

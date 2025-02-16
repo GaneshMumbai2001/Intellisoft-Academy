@@ -10,6 +10,7 @@ const ArtPage = () => {
 
   const courses = [
     {
+      id: 1,
       imageLink: "/courses/c1.png",
       reviews: 5,
       courseName: "The Ultimate Course Bundle",
@@ -26,6 +27,7 @@ const ArtPage = () => {
       },
     },
     {
+      id: 2,
       imageLink: "/courses/c2.png",
       reviews: 4.8,
       courseName: "JS Zero to Mastery",
@@ -42,6 +44,7 @@ const ArtPage = () => {
       },
     },
     {
+      id: 3,
       imageLink: "/courses/c3.png",
       reviews: 4.9,
       courseName: "PHP Beginner Advanced",
@@ -59,6 +62,7 @@ const ArtPage = () => {
       
     },
     {
+      id: 4,
       imageLink: "/courses/c3.png",
       reviews: 4.9,
       courseName: "Data Science & ML",

@@ -10,6 +10,7 @@ const BitcoinPage = () => {
 
   const courses = [
     {
+      id: 1,
       imageLink: "/courses/app.png",
       reviews: 5,
       courseName: "App Development",
@@ -26,6 +27,7 @@ const BitcoinPage = () => {
       },
     },
     {
+      id: 2,
       imageLink: "/courses/eng.png",
       reviews: 4.8,
       courseName: "English Popular Course",
@@ -42,6 +44,7 @@ const BitcoinPage = () => {
       },
     },
     {
+      id: 3,
       imageLink: "/courses/ref.png",
       reviews: 4.9,
       courseName: "React Front To Back",

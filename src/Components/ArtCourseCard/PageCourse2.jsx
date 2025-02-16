@@ -3,131 +3,101 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 // import { motion } from "framer-motion";
-import co1 from '/home/co1.png';
-import co2 from '/home/co2.png';
-import co3 from '/home/co3.png';
-import co4 from '/home/co4.png';
+import co1 from '/home/app.png';
+import co2 from '/home/english.png';
+import co3 from '/home/think.png';
 import instructorImage from "/home/co2.png"; 
 import coursePreview from "/home/co4.png"; 
 const courses = [
-  {
-    id: 1,
-    image: co1,
-    title: "Web Design",
-    description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
-    description: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
-    lessons: [
-      "Let's learn Web App Application from scratch with projects",
-      "How to learn React | A React Roadmap",
-    ],
-    benefits: [
-      "Master UI/UX design principles",
-      "Build interactive web applications",
-      "Gain hands-on project experience",
-    ],
-    originalPrice: "$199",
-    price: "$99",
-    updateDate: "Feb 2025",
-    enrolled: "1,200 students",
-    lectures: "30",
-    skillLevel: "Beginner to Advanced",
-    language: "English",
-    duration: "10 hours",
-    contact: "123-456-7890",
-    instructor: {
-      name: "Rainbow Themes",
-      role: "WordPress Developer",
-      rating: "4.89",
-      reviews: "9 Ratings",
-      image: instructorImage,
-    },
-  },
-  {
-    id: 2,
-    image: co2,
-    title: "Personal Development",
-    description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
-    description: "Mindset improvement and self-growth strategies.",
-    lessons: ["Developing a growth mindset", "Time management techniques"],
-    benefits: [
-      "Improve self-confidence",
-      "Enhance productivity",
-      "Develop leadership skills",
-    ],
-    originalPrice: "$149",
-    price: "$79",
-    updateDate: "Jan 2025",
-    enrolled: "900 students",
-    lectures: "25",
-    skillLevel: "All Levels",
-    language: "English",
-    duration: "8 hours",
-    contact: "123-456-7890",
-    instructor: {
-      name: "John Doe",
-      role: "Life Coach",
-      rating: "4.75",
-      reviews: "12 Ratings",
-      image: coursePreview,
-    },
-  },
-  {
-    id: 3,
-    image: co3,
-    title: "IT and Software",
-    description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
-    description: "Software development essentials and best practices.",
-    lessons: ["Intro to software engineering", "Version control with Git"],
-    benefits: [
-      "Understand software development lifecycle",
-      "Master version control techniques",
-      "Enhance coding skills",
-    ],
-    originalPrice: "$179",
-    price: "$89",
-    updateDate: "Mar 2025",
-    enrolled: "1,500 students",
-    lectures: "35",
-    skillLevel: "Intermediate to Advanced",
-    language: "English",
-    duration: "12 hours",
-    contact: "123-456-7890",
-    instructor: {
-      name: "Jane Smith",
-      role: "Software Engineer",
-      rating: "4.80",
-      reviews: "15 Ratings",
-      image: instructorImage,
-    },
-  },
-  {
-    id: 4,
-    image: co4,
-    title: "Graphic Design",
-    description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
-    description: "Unlock your creativity with essential design skills.",
-    lessons: ["Fundamentals of design", "Adobe Photoshop basics"],
-    benefits: [
-      "Learn essential design principles",
-      "Use industry-standard tools",
-      "Create professional graphic designs",
-    ],
-    originalPrice: "$159",
-    price: "$85",
-    updateDate: "Apr 2025",
-    enrolled: "800 students",
-    lectures: "20",
-    skillLevel: "Beginner to Intermediate",
-    language: "English",
-    duration: "9 hours",
-    contact: "123-456-7890",
-    instructor: {
-      name: "Emily Davis",
-      role: "Graphic Designer",
-      rating: "4.85",
-      reviews: "10 Ratings",
-      image: instructorImage,
-    },
+   {
+     id: 1,
+     image: co1,
+     title: "App Development",
+     description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
+     description: "Unlock the full potential of web development with our comprehensive…",
+     lessons: [
+       "Let's learn Web App Application from scratch with projects",
+       "How to learn React | A React Roadmap",
+     ],
+     benefits: [
+       "Master UI/UX design principles",
+       "Build interactive web applications",
+       "Gain hands-on project experience",
+     ],
+     originalPrice: "$199",
+     price: "$500",
+     updateDate: "Feb 2025",
+     enrolled: "1,200 students",
+     lectures: "30",
+     skillLevel: "Beginner to Advanced",
+     language: "English",
+     duration: "10 hours",
+     contact: "123-456-7890",
+     instructor: {
+       name: "Rainbow Themes",
+       role: "WordPress Developer",
+       rating: "4.89",
+       reviews: "9 Ratings",
+       image: instructorImage,
+     },
+   },
+   {
+     id: 2,
+     image: co2,
+     title: "English Popular Course",
+     description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
+     description: "App Development by building 100 projects in 100 days. Learn…",
+     lessons: ["Developing a growth mindset", "Time management techniques"],
+     benefits: [
+       "Improve self-confidence",
+       "Enhance productivity",
+       "Develop leadership skills",
+     ],
+     originalPrice: "$149",
+     price: "$65",
+     updateDate: "Jan 2025",
+     enrolled: "900 students",
+     lectures: "25",
+     skillLevel: "All Levels",
+     language: "English",
+     duration: "8 hours",
+     contact: "123-456-7890",
+     instructor: {
+       name: "John Doe",
+       role: "Life Coach",
+       rating: "4.75",
+       reviews: "12 Ratings",
+       image: coursePreview,
+     },
+   },
+   {
+     id: 3,
+     image: co3,
+     title: "React Front To Back",
+     description2: "Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.",
+     description: "Intellisoft is elegant theme.",
+     lessons: ["Intro to software engineering", "Version control with Git"],
+     benefits: [
+       "Understand software development lifecycle",
+       "Master version control techniques",
+       "Enhance coding skills",
+     ],
+     originalPrice: "$179",
+     price: "$60",
+     updateDate: "Mar 2025",
+     enrolled: "1,500 students",
+     lectures: "35",
+     skillLevel: "Intermediate to Advanced",
+     language: "English",
+     duration: "12 hours",
+     contact: "123-456-7890",
+     instructor: {
+       name: "Jane Smith",
+       role: "Software Engineer",
+       rating: "4.80",
+       reviews: "15 Ratings",
+       image: instructorImage,
+     },
   },
 ];
 
@@ -135,7 +105,7 @@ function CourseImage({ image = "/default-course.jpg", alt = "Course Image" }) {
   return <img src={image} alt={alt} className="w-full" />;
 }
 
-function  BuyCart() {
+function  PageCourse2() {
   const { id } = useParams();
   const course = courses.find((c) => c.id === parseInt(id));
 
@@ -305,4 +275,6 @@ function  BuyCart() {
   );
 }
 
-export default BuyCart;
+export default PageCourse2;
+
+

@@ -30,7 +30,9 @@ import SpanishCourses from "./Pages/SpanishCourses.jsx";
 import JapaneseCourses from "./Pages/JapaneseCourses.jsx";
 // import BuyCart from "./Components/BuyCartSection/BuyCart.jsx";
 import CoursePurchase  from "./Components/UserCart/CoursePurchase.jsx";
-import CourseDetail from "./Components/Home/Course/CourseDetail.jsx";
+import CourseDetail from "./Components/Course/CourseDetail.jsx";
+import PagesCourse1 from "./Components/ArtCourseCard/PageCourse1.jsx";
+import PagesCourse2 from "./Components/ArtCourseCard/PageCourse2.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,8 +63,10 @@ const router = createBrowserRouter([
       { path: "/Language-course-page", element: <LanguagecPage/> },
       // { path: "course/:id", element: <BuyCart/> },
       {path: "course/:id", element: <CourseDetail />}, 
-      { path: "/user/cart", element:<CoursePurchase /> },
-     
+      {path: "pages/:id", element: <PagesCourse1/>},
+      {path: "bitcoin/:id", element: <PagesCourse2/>},
+      // { path: "/user/cart", element:<CoursePurchase /> },
+      {path:"/user/cart", element:<CoursePurchase />},
       // { path: "/signup/admin", element: <SignUpAdmin /> },
       // { path: "/signup/instructor", element: <SignUpInstructor /> },
       // { path: "/signup/user", element: <SignUpUser /> },
