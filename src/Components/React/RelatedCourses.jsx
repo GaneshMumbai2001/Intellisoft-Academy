@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const  RelatedCourses = () => {
   const initialCourses = [
     {
+      id:1,
       imageLink: "/courses/c1.png",
       reviews: 5,
       courseName: "React Mastery",
@@ -19,6 +21,7 @@ const  RelatedCourses = () => {
       },
     },
     {
+      id:2,
       imageLink: "/courses/c2.png",
       reviews: 4.8,
       courseName: "JavaScript Essentials",
@@ -34,6 +37,7 @@ const  RelatedCourses = () => {
       },
     },
     {
+      id:3,
       imageLink: "/courses/c3.png",
       reviews: 4.5,
       courseName: "Python for Beginners",
@@ -52,6 +56,7 @@ const  RelatedCourses = () => {
 
   const additionalCourses = [
     {
+      id:4,
       imageLink: "/courses/c4.png",
       reviews: 4.2,
       courseName: "Web Design Fundamentals",
@@ -67,6 +72,7 @@ const  RelatedCourses = () => {
       },
     },
     {
+      id:5,
       imageLink: "/courses/c5.png",
       reviews: 4.9,
       courseName: "Advanced React Patterns",
@@ -82,6 +88,7 @@ const  RelatedCourses = () => {
       },
     },
     {
+      id:6,
       imageLink: "/courses/c6.png",
       reviews: 4.7,
       courseName: "Data Science with Python",
@@ -170,6 +177,7 @@ const  RelatedCourses = () => {
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
+             <Link to={`/RelatedCourses/${course.id}`} className="">
             <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
             <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
             <p className="text-sm text-gray-600 my-2">{course.description}</p>
@@ -177,6 +185,7 @@ const  RelatedCourses = () => {
               <span>{course.totalLessons} Lessons</span>
               <span>{course.enrolledStudents} Students</span>
             </div>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

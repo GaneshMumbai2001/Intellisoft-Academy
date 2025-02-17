@@ -31,12 +31,15 @@ import JapaneseCourses from "./Pages/JapaneseCourses.jsx";
 // import BuyCart from "./Components/BuyCartSection/BuyCart.jsx";
 import CoursePurchase  from "./Components/UserCart/CoursePurchase.jsx";
 import CourseDetail from "./Components/Course/CourseDetail.jsx";
-import PagesCourse1 from "./Components/ArtCourseCard/PageCourse1.jsx";
-import PagesCourse2 from "./Components/ArtCourseCard/PageCourse2.jsx";
-import PagesCourse3 from "./Components/ArtCourseCard/PageCourse3.jsx";
-import PagesCourse4 from "./Components/ArtCourseCard/PageCourse4.jsx";
-import PagesCourse5 from "./Components/ArtCourseCard/PageCourse5.jsx";
-import PagesCourse6 from "./Components/ArtCourseCard/PageCourse6.jsx";
+import PagesCourse1 from "./Components/PagesCourseCard/PageCourse1.jsx";
+import PagesCourse2 from "./Components/PagesCourseCard/PageCourse2.jsx";
+import PagesCourse3 from "./Components/PagesCourseCard/PageCourse3.jsx";
+import PagesCourse4 from "./Components/PagesCourseCard/PageCourse4.jsx";
+import PagesCourse5 from "./Components/PagesCourseCard/PageCourse5.jsx";
+import PagesCourse6 from "./Components/PagesCourseCard/PageCourse6.jsx";
+import AllCourses from './Components/PagesCourseCard/AllCourses.jsx'
+import LangCourse1 from './Components/LanguageDescriptionCards/LangCourse1.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -73,11 +76,14 @@ const router = createBrowserRouter([
       {path: "functionaltraining/:id", element: <PagesCourse4/>},
       {path: "It/:id", element: <PagesCourse5/>},
       {path: "Quantum/:id", element: <PagesCourse6/>},
+      {path: "AllCourses/:id", element: <AllCourses/>},
       // { path: "/user/cart", element:<CoursePurchase /> },
       {path:"/user/cart", element:<CoursePurchase />},
       // { path: "/signup/admin", element: <SignUpAdmin /> },
       // { path: "/signup/instructor", element: <SignUpInstructor /> },
       // { path: "/signup/user", element: <SignUpUser /> },
+      {path: "RelatedCourses/:id", element: <LangCourse1/>},
+      // {path: "bitcoin/:id", element: <LangCourse2/>},
       { path: "/login", element: <LoginFormAll /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/login", element: <LoginForm /> },

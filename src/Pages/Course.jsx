@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CoursesHeader from "../Components/Courses/CoursesHeader"; // Correct import path
 import GridView from "../Components/Courses/GridView"; // Correct import path
-import ListView from "../Components/Courses/ListView"; // Correct import path
+import ListView from "../Components/Courses/Listview"; // Correct import path
 import { motion } from "framer-motion";
 
 const Course = () => {
@@ -10,6 +10,7 @@ const Course = () => {
 
   const courses = [
     {
+      id:1,
       imageLink: "/courses/c1.png",
       reviews: 5,
       courseName: "React Mastery",
@@ -26,6 +27,7 @@ const Course = () => {
       },
     },
     {
+      id:2,
       imageLink: "/courses/c2.png",
       reviews: 4.8,
       courseName: "JavaScript Essentials",
@@ -42,6 +44,7 @@ const Course = () => {
       },
     },
     {
+      id:3,
       imageLink: "/courses/c3.png",
       reviews: 4.9,
       courseName: "Python for Beginners",
@@ -59,6 +62,7 @@ const Course = () => {
     },
     // Add more courses as needed...
     {
+      id:4,
       imageLink: "/courses/c4.png",
       reviews: 4.9,
       courseName: "Python for Beginners",
@@ -75,6 +79,7 @@ const Course = () => {
       },
     },
     {
+      id:5,
       imageLink: "/courses/c5.png",
       reviews: 4.9,
       courseName: "Python for Beginners",
@@ -91,6 +96,7 @@ const Course = () => {
       },
     },
     {
+      id:6,
       imageLink: "/courses/c6.png",
       reviews: 4.9,
       courseName: "Python for Beginners",
