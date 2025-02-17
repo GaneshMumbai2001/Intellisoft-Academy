@@ -21,7 +21,7 @@ const BitGridView = ({ courses }) => {
               key={index}
               className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105 m-5"
             >
-               <Link to={`/bitcoin/${course.id}`} className="text-lg font-semibold text-gray-900">
+               <Link to={`/bitcoin/${course.id}`} className="">
               {/* Course Image */}
               <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
 

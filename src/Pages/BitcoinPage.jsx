@@ -94,3 +94,4 @@ const BitcoinPage = () => {
 };
 
 export default BitcoinPage;
+

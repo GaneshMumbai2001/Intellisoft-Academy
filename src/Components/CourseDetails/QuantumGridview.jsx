@@ -19,9 +19,10 @@ const QuantumGridview = ({ courses }) => {
           courses.map((course, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105 m-5"
+              className=""
             >
               {/* Course Image */}
+              <Link to={`/Quantum/${course.id}`} className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105 m-5">
               <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
 
               {/* Course Name & Rating */}
@@ -58,6 +59,7 @@ const QuantumGridview = ({ courses }) => {
                   Add to cart
                 </Link>
               </div>
+              </Link>
             </motion.div>
           ))
         ) : (

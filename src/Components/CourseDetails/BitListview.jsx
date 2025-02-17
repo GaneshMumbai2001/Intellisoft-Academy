@@ -1,6 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const BitListView = ({ courses }) => {
   return (
@@ -15,13 +16,16 @@ const BitListView = ({ courses }) => {
         {courses.map((course, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow-lg rounded-xl p-5 flex flex-wrap gap-6 transition-transform hover:scale-105 m-8"
+            className=""
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <img className="w-40 h-40 rounded-lg md:w-40 sm:w-60 " src={course.imageLink} alt={course.courseName} />
+             <Link to={`/bitcoin/${course.id}`} className="bg-white shadow-lg rounded-xl p-5 flex flex-wrap gap-6 transition-transform hover:scale-105 m-8">
+             <img className="w-40 h-40 rounded-lg md:w-40 sm:w-60 " src={course.imageLink} alt={course.courseName} />
+          
+          
             <div className="flex flex-col justify-between">
               <div>
                 <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
@@ -44,6 +48,7 @@ const BitListView = ({ courses }) => {
                 </button>
               </div>
             </div>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

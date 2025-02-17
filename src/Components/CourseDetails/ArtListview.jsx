@@ -16,16 +16,15 @@ const ArtListView = ({ courses }) => {
         {courses.map((course, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow-lg rounded-xl p-5 flex flex-wrap gap-6 transition-transform hover:scale-105 m-8"
+            className=""
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-              <Link to={`/pages/${course.id}`} className="text-lg font-semibold text-gray-900">
+              <Link to={`/pages/${course.id}`} className="bg-white shadow-lg rounded-xl p-5 flex flex-wrap gap-6 transition-transform hover:scale-105 m-8">
             <img className="w-40 h-40 rounded-lg md:w-44 sm:w-48" src={course.imageLink} alt={course.courseName} />
-            </Link>
-           
+          
             <div className="flex flex-col justify-between">
               <div>
                 <div className="text-gray-900 font-semibold text-lg">{course.courseName}</div>
@@ -48,6 +47,7 @@ const ArtListView = ({ courses }) => {
                 </button>
               </div>
             </div>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

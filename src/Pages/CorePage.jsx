@@ -10,6 +10,7 @@ const CorePage = () => {
 
   const courses = [
     {
+      id:1,
       imageLink: "/courses/c3.png",
       reviews: 5,
       courseName: "Basics of Intellisoft Theme",

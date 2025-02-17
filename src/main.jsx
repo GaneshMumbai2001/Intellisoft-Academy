@@ -33,6 +33,10 @@ import CoursePurchase  from "./Components/UserCart/CoursePurchase.jsx";
 import CourseDetail from "./Components/Course/CourseDetail.jsx";
 import PagesCourse1 from "./Components/ArtCourseCard/PageCourse1.jsx";
 import PagesCourse2 from "./Components/ArtCourseCard/PageCourse2.jsx";
+import PagesCourse3 from "./Components/ArtCourseCard/PageCourse3.jsx";
+import PagesCourse4 from "./Components/ArtCourseCard/PageCourse4.jsx";
+import PagesCourse5 from "./Components/ArtCourseCard/PageCourse5.jsx";
+import PagesCourse6 from "./Components/ArtCourseCard/PageCourse6.jsx";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +69,10 @@ const router = createBrowserRouter([
       {path: "course/:id", element: <CourseDetail />}, 
       {path: "pages/:id", element: <PagesCourse1/>},
       {path: "bitcoin/:id", element: <PagesCourse2/>},
+      {path: "core/:id", element: <PagesCourse3/>},
+      {path: "functionaltraining/:id", element: <PagesCourse4/>},
+      {path: "It/:id", element: <PagesCourse5/>},
+      {path: "Quantum/:id", element: <PagesCourse6/>},
       // { path: "/user/cart", element:<CoursePurchase /> },
       {path:"/user/cart", element:<CoursePurchase />},
       // { path: "/signup/admin", element: <SignUpAdmin /> },

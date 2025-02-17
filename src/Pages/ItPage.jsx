@@ -10,6 +10,7 @@ const ItPage = () => {
 
   const courses = [
     {
+      id:1,
       imageLink: "/courses/c1.png",
       reviews: 5,
       courseName: "The Ultimate Course Bundle",
@@ -26,6 +27,7 @@ const ItPage = () => {
       },
     },
     {
+      id:2,
       imageLink: "/courses/c2.png",
       reviews: 4.8,
       courseName: "JS Zero to Mastery",
@@ -42,6 +44,7 @@ const ItPage = () => {
       },
     },
     {
+      id:3,
       imageLink: "/courses/c3.png",
       reviews: 4.9,
       courseName: "PHP Beginner Advanced",
@@ -58,23 +61,60 @@ const ItPage = () => {
       },
       
     },
+
     {
-      imageLink: "/courses/c3.png",
+      id: 4,
+      imageLink: "/courses/app.png",
+      reviews: 5,
+      courseName: "App Development",
+      totalLessons: 12,
+      enrolledStudents: 50,
+      description:
+        "App Development by building 100 projects in 100 days. Learn…",
+        price: "Free",
+      curPrice: "",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "By hemal hemal ",
+        field: "In Art & Humanities",
+      },
+    },
+    {
+      id: 5,
+      imageLink: "/courses/eng.png",
+      reviews: 4.8,
+      courseName: "English Popular Course",
+      totalLessons: 10,
+      enrolledStudents: 45,
+      description:
+        "Intellisoft is elegant theme.",
+     price: "Free",
+      curPrice: "",
+      instructor: {
+        imageLink: "/courses/r1.png",
+        name: "John Doe",
+        field: "Web Development",
+      },
+    },
+    {
+      id: 6,
+      imageLink: "/courses/ref.png",
       reviews: 4.9,
-      courseName: "Data Science & ML",
+      courseName: "React Front To Back",
       totalLessons: 15,
       enrolledStudents: 60,
       description:
-        "Elevate your skills with real-world project building.",
+        "Learn React from basics to advanced, mastering UI building, state…",
       price: "Free",
       curPrice: "",
       instructor: {
         imageLink: "/courses/r1.png",
-        name: "By Rainbow Themes ",
-        field: "In Finance & Accounting",
+        name: "Alice Smith",
+        field: "Data Science",
       },
       
     },
+   
    
   ];
 

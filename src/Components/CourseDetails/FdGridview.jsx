@@ -22,6 +22,7 @@ const FdGridview = ({ courses }) => {
               className="bg-white shadow-lg rounded-xl p-5 transition-transform hover:scale-105 m-5"
             >
               {/* Course Image */}
+              <Link to={`/functionaltraining/${course.id}`} className="text-lg font-semibold text-gray-900">
               <img className="w-full rounded-lg mb-4" src={course.imageLink} alt={course.courseName} />
 
               {/* Course Name & Rating */}
@@ -58,6 +59,7 @@ const FdGridview = ({ courses }) => {
                   Add to cart
                 </Link>
               </div>
+              </Link>
             </motion.div>
           ))
         ) : (

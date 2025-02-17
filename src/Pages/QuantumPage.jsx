@@ -10,7 +10,8 @@ const QuantumPage = () => {
 
   const courses = [
     {
-      imageLink: "/courses/c1.png",
+      id:1,
+      imageLink: "/courses/q1.png",
       reviews: 5,
       courseName: "The Ultimate Course Bundle",
       totalLessons: 12,
@@ -25,56 +26,59 @@ const QuantumPage = () => {
         field: "In Art & Humanities",
       },
     },
-    {
-      imageLink: "/courses/c2.png",
-      reviews: 4.8,
-      courseName: "JS Zero to Mastery",
-      totalLessons: 10,
-      enrolledStudents: 45,
-      description:
-        "JS Zero to Mastery - Full Stack Project in Next.js…",
-      price: "100.00",
-      curPrice: "60.00",
-      instructor: {
-        imageLink: "/courses/r1.png",
-        name: "John Doe",
-        field: "Web Development",
-      },
-    },
-    {
-      imageLink: "/courses/c3.png",
-      reviews: 4.9,
-      courseName: "PHP Beginner Advanced",
-      totalLessons: 15,
-      enrolledStudents: 60,
-      description:
-        "It is a long established fact that a reader will…",
-      price: "110.00",
-      curPrice: "65.00",
-      instructor: {
-        imageLink: "/courses/r1.png",
-        name: "Alice Smith",
-        field: "Data Science",
-      },
+    // {
+    //   id:2,
+    //   imageLink: "/courses/c2.png",
+    //   reviews: 4.8,
+    //   courseName: "JS Zero to Mastery",
+    //   totalLessons: 10,
+    //   enrolledStudents: 45,
+    //   description:
+    //     "JS Zero to Mastery - Full Stack Project in Next.js…",
+    //   price: "100.00",
+    //   curPrice: "60.00",
+    //   instructor: {
+    //     imageLink: "/courses/r1.png",
+    //     name: "John Doe",
+    //     field: "Web Development",
+    //   },
+    // },
+    // {
+    //   id:3,
+    //   imageLink: "/courses/c3.png",
+    //   reviews: 4.9,
+    //   courseName: "PHP Beginner Advanced",
+    //   totalLessons: 15,
+    //   enrolledStudents: 60,
+    //   description:
+    //     "It is a long established fact that a reader will…",
+    //   price: "110.00",
+    //   curPrice: "65.00",
+    //   instructor: {
+    //     imageLink: "/courses/r1.png",
+    //     name: "Alice Smith",
+    //     field: "Data Science",
+    //   },
       
-    },
-    {
-      imageLink: "/courses/c3.png",
-      reviews: 4.9,
-      courseName: "Data Science & ML",
-      totalLessons: 15,
-      enrolledStudents: 60,
-      description:
-        "Elevate your skills with real-world project building.",
-      price: "Free",
-      curPrice: "",
-      instructor: {
-        imageLink: "/courses/r1.png",
-        name: "By Rainbow Themes ",
-        field: "In Finance & Accounting",
-      },
+    // },
+    // {
+    //   id:4,
+    //   imageLink: "/courses/c3.png",
+    //   reviews: 4.9,
+    //   courseName: "Data Science & ML",
+    //   totalLessons: 15,
+    //   enrolledStudents: 60,
+    //   description:
+    //     "Elevate your skills with real-world project building.",
+    //   price: "Free",
+    //   curPrice: "",
+    //   instructor: {
+    //     imageLink: "/courses/r1.png",
+    //     name: "By Rainbow Themes ",
+    //     field: "In Finance & Accounting",
+    //   },
       
-    },
+    // },
    
   ];
 
