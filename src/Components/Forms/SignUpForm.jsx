@@ -1,19 +1,36 @@
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 export const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    mobile: "",
     email: "",
     password: "",
     confirmPassword: "",
-    rememberMe: false,
   });
 
-  const [errors, setErrors] = useState({ email: "", password: "", confirmPassword: "" });
+  const [errors, setErrors] = useState({
+    firstname: "",
+    lastname: "",
+    mobile: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [showOtpModal, setShowOtpModal] = useState(false);
-  const [otp, setOtp] = useState(["", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [otpError, setOtpError] = useState("");
+  const [userId, setUserId] = useState(null);
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -22,16 +39,33 @@ export const SignUpForm = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     }));
 
-    if (name === "email") {
+    if (name === "firstname" || name === "lastname") {
+      const regex = /^[A-Za-z]+$/;
       setErrors((prev) => ({
         ...prev,
-        email: /\S+@\S+\.\S+/.test(value) ? "" : "Invalid email address",
+        [name]: value === "" || regex.test(value) ? "" : "Only alphabets are allowed",
+      }));
+    }
+
+    if (name === "mobile") {
+      setErrors((prev) => ({
+        ...prev,
+        mobile: /^\d{10}$/.test(value) ? "" : "Mobile number must be 10 digits",
+      }));
+    }
+
+    if (name === "email") {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      setErrors((prev) => ({
+        ...prev,
+        email: emailRegex.test(value) ? "" : "Email must be a valid Gmail address (alphanumeric@gmail.com)",
       }));
     }
 
@@ -52,32 +86,95 @@ export const SignUpForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!errors.email && !errors.password && !errors.confirmPassword) {
-      setShowOtpModal(true);
+
+    console.log("Form Data Before Validation:", formData); 
+
+    if (
+      !formData.firstname ||
+      !formData.lastname ||
+      !formData.mobile ||
+      errors.firstname ||
+      errors.lastname ||
+      errors.mobile ||
+      errors.email ||
+      errors.password ||
+      errors.confirmPassword
+    ) {
+      setErrors((prev) => ({
+        ...prev,
+        firstname: formData.firstname ? prev.firstname : "First name is required",
+        lastname: formData.lastname ? prev.lastname : "Last name is required",
+        mobile: formData.mobile ? prev.mobile : "Mobile number is required",
+      }));
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          mobile: formData.mobile,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+      console.log("API Response:", data); // Debugging line
+
+      if (response.ok) {
+        setShowOtpModal(true);
+        setUserId(data.userId); // Store userId for OTP verification
+      } else {
+        alert(data.message); // Show error message from backend
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
     }
   };
 
   const handleOtpChange = (index, value) => {
-    if (!/^\d*$/.test(value)) return; // Allow only numbers
+    if (!/^\d*$/.test(value)) return; // Only allow numbers
 
-    const newOtp = [...otp];
-    newOtp[index] = value;
-    setOtp(newOtp);
+    setOtp((prevOtp) => {
+      const newOtp = [...prevOtp];
+      newOtp[index] = value;
+      return newOtp;
+    });
 
-    // Move focus to next input
-    if (value !== "" && index < 3) {
+    if (value !== "" && index < 5) {
       document.getElementById(`otp-${index + 1}`).focus();
     }
   };
 
-  const handleVerifyOtp = () => {
-    if (otp.join("").length === 4) {
-      console.log("OTP Verified:", otp.join(""));
-      setShowOtpModal(false);
-    } else {
-      setOtpError("Invalid OTP. Please enter all 4 digits.");
+  const handleVerifyOtp = async () => {
+    if (otp.join("").length !== 6) {
+      setOtpError("Invalid OTP. Please enter all 6 digits.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, otp: otp.join("") }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("OTP Verified! Redirecting to login...");
+        setShowOtpModal(false);
+        navigate("/login");
+      } else {
+        setOtpError(data.message);
+      }
+    } catch (error) {
+      console.error("OTP verification error:", error);
     }
   };
 
@@ -93,41 +190,119 @@ export const SignUpForm = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 text-center drop-shadow-lg"
+          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 text-center"
         >
           Sign Up
         </motion.h2>
 
         <form className="mt-6" onSubmit={handleSubmit}>
+          {/* First Name */}
+          <div className="mb-4">
+            <label className="block text-gray-700">First Name</label>
+            <input
+              type="text"
+              name="firstname"
+              value={formData.firstname}
+              onChange={handleChange}
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+            />
+            {errors.firstname && <p className="text-red-500 text-sm">{errors.firstname}</p>}
+          </div>
+
+          {/* Last Name */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Last Name</label>
+            <input
+              type="text"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+            />
+            {errors.lastname && <p className="text-red-500 text-sm">{errors.lastname}</p>}
+          </div>
+
+          {/* Mobile Number */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Mobile Number</label>
+            <input
+              type="text"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              maxLength="10"
+            />
+            {errors.mobile && <p className="text-red-500 text-sm">{errors.mobile}</p>}
+          </div>
+
           {/* Email */}
           <div className="mb-4">
-            <label className="block text-gray-700">Email Address</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400" />
+            <label className="block text-gray-700">Email</label>
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+            />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
 
           {/* Password */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-gray-700">Password</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} required className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              autoComplete="new-password"
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 pr-10"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 top-2 text-gray-500"
+            >
+              {showPassword ? <EyeOff /> : <Eye />}
+            </button>
             {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
           </div>
 
           {/* Confirm Password */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-gray-700">Confirm Password</label>
-            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400" />
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              autoComplete="new-password"
+              required
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 pr-10"
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword((prev) => !prev)}
+              className="absolute right-3 top-2 text-gray-500"
+            >
+              {showConfirmPassword ? <EyeOff /> : <Eye />}
+            </button>
             {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
           </div>
 
-          {/* Remember Me */}
-          <div className="flex items-center mb-4">
-            <input type="checkbox" name="rememberMe" checked={formData.rememberMe} onChange={handleChange} className="mr-2" />
-            <label className="text-gray-600">Remember me</label>
-          </div>
-
-          {/* Submit Button */}
-          <motion.button type="submit" whileHover={{ scale: 1.05 }} className="w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:opacity-90">
+          {/* Sign Up Button */}
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.05 }}
+            className="w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:opacity-90"
+          >
             Sign Up
           </motion.button>
         </form>
@@ -136,34 +311,39 @@ export const SignUpForm = () => {
       {/* OTP Modal */}
       <AnimatePresence>
         {showOtpModal && (
-          <motion.div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="bg-white p-6 rounded-lg shadow-xl"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg"
             >
-              <h3 className="text-lg font-semibold text-gray-700 text-center">Enter OTP</h3>
-              <div className="flex justify-center my-4">
+              <h3 className="text-xl font-bold text-center">Enter OTP</h3>
+              <div className="flex justify-between my-4">
                 {otp.map((digit, index) => (
                   <input
                     key={index}
-                    id={`otp-${index}`}
                     type="text"
-                    maxLength="1"
                     value={digit}
                     onChange={(e) => handleOtpChange(index, e.target.value)}
-                    className="w-12 h-12 text-center text-xl border rounded-lg mx-1 focus:ring-2 focus:ring-blue-400"
+                    maxLength="1"
+                    className="w-10 h-10 text-center border rounded-lg"
+                    id={`otp-${index}`}
                   />
                 ))}
               </div>
               {otpError && <p className="text-red-500 text-sm text-center">{otpError}</p>}
-              <button onClick={handleVerifyOtp} className="w-full mt-3 py-2 text-white bg-blue-500 rounded-lg hover:opacity-90">
+              <motion.button
+                onClick={handleVerifyOtp}
+                className="w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:opacity-90"
+              >
                 Verify OTP
-              </button>
-              <button onClick={() => setShowOtpModal(false)} className="w-full mt-2 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300">
-                Cancel
-              </button>
+              </motion.button>
             </motion.div>
           </motion.div>
         )}

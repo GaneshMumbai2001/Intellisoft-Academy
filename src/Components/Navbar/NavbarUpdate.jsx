@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { X } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaShoppingCart, FaUser } from "react-icons/fa";
 import intellisoftLogo from '/public/navbar/intellisoft.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const menuItems = [
-        { name: "Demos", subItems: [{ label: "Home Page", link: "/" }, { label: "Landing Page", link: "/landing" }, { label: "Courses", link: "/courses" }, { label: "Contact", link: "/contact" }, { label: "Blog", link: "/blog" }, { label: "Course to Buy", link: "/coursebuy" }, { label: "React", link: "/react" }, { label: "Login", link: "/login" }, { label: "Signup", link: "/signup" }] },
+        { name: "Demos", subItems: [{ label: "Home Page", link: "/" }, { label: "Landing Page", link: "/landing" }, { label: "ContactUs", link: "/courses" }, { label: "Contact", link: "/contact" }, { label: "Blog", link: "/blog" }, { label: "Course to Buy", link: "/coursebuy" }, { label: "React", link: "/react" }, { label: "Login", link: "/login" }, { label: "Signup", link: "/signup" }] },
         { name: "Courses", subItems: [{ label: "Art & Humanities", link: "/artpage" }, { label: "Bitcoin Forums", link: "/bitcoinpage" }, { label: "Core Functions", link: "/corepage" }] },
         { name: "Pages", subItems: [{ label: "About Us", link: "/about" }, { label: "Contact", link: "/contact" }, { label: "FAQ", link: "/faq" }] },
         { name: "Elements", subItems: [{ label: "Buttons", link: "/buttons" }, { label: "Cards", link: "/cards" }, { label: "Forms", link: "/forms" }] },
@@ -17,9 +17,27 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 769);
+    const [userDropdown, setUserDropdown] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = (menu) => {
         setActiveMenu(activeMenu === menu ? null : menu);
+    };
+
+    const toggleUserDropdown = () => {
+        setUserDropdown(!userDropdown);
+    };
+
+    const handleLogout = () => {
+        // Clear user data from local storage or state
+        localStorage.removeItem('userToken'); // Example: Remove token
+        localStorage.removeItem('userData'); // Example: Remove user data
+
+        // Redirect to login page
+        navigate('/login');
+
+        // Close the dropdown
+        setUserDropdown(false);
     };
 
     useEffect(() => {
@@ -30,27 +48,12 @@ const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const chunkArray = (arr, chunkSize) => {
-        const result = [];
-        for (let i = 0; i < arr.length; i += chunkSize) {
-            result.push(arr.slice(i, i + chunkSize));
-        }
-        return result;
-    };
-
-    const helpItems = [
-        { label: "Documentation", link: "/" },
-        { label: "Submit a Ticket", link: "/" },
-        { label: "Customization", link: "https://example.com/customization" },
-        { label: "What’s New", link: "https://example.com/whats-new" },
-        { label: "Intro Video", link: "https://example.com/intro-video" },
-        { label: "Pre-sale Question", link: "https://example.com/pre-sale-question" },
-    ];
+  
 
     const demostarted = [
         { name: 'Home Page', link: '/' },
         { name: 'Landing Page', link: '/landing' },
-        { name: 'Contact Us', link: '/contact' },
+        // { name: 'Contact Us', link: '/contact' },
         { name: 'Login', link: '/login' },
     ];
 
@@ -63,20 +66,10 @@ const Navbar = () => {
         { name: 'Quantum Chemistry', link: '/quantumpage' },
     ];
 
-    // admin and cart
-    const [adminDropdown, setAdminDropdown] = useState(false);
-    const [userDropdown, setUserDropdown] = useState(false);
-
-    const toggleUserDropdown = () => {
-        setUserDropdown(!userDropdown);
-    };
-
     return (
         <div className="w-full">
             {/* Top Bar */}
-            <div className="bg-gray-900 text-white text-xs flex justify-between items-center px-6 py-2">
-                <span className="bg-blue-600 text-white px-2 py-1 rounded text-[10px]">Hot</span>
-                <p className="flex-1 text-center">👋 Intro price. Big Sale -95% off.</p>
+            <div className="bg-gray-900 text-white text-xs flex justify-end px-6 py-2">
                 <div className="flex gap-3 items-center">
                     <FaFacebook /> <FaInstagram /> <FaLinkedin />
                     <span className="ml-2">English</span>
@@ -92,11 +85,11 @@ const Navbar = () => {
                     {/* Demos Dropdown */}
                     <div className="relative leading-5 hover:cursor-pointer group hover:text-blue-600">
                         Demos
-                        <div className="absolute left-1/2 top-full transform -translate-x-1/2 hidden group-hover:flex w-[auto] p-4 z-50 bg-white rounded-lg shadow-lg"> {/* Added bg-white and rounded-lg */}
+                        <div className="absolute left-1/2 top-full transform -translate-x-1/2 hidden group-hover:flex w-[auto] p-4 z-50 bg-white rounded-lg shadow-lg">
                             <ul className="space-y-2 text-[13px] text-gray-900">
                                 {demostarted.map((link, index) => (
                                     <li key={index}>
-                                        <Link to={link.link} className="hover:text-indigo-600">{link.name}</Link> {/* Use Link component */}
+                                        <Link to={link.link} className="hover:text-indigo-600">{link.name}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -119,36 +112,40 @@ const Navbar = () => {
                     </div>
                     <Link to="/" className="relative leading-5 hover:cursor-pointer hover:text-blue-600">Elements</Link>
                     <Link to="/blog" className="relative leading-5 hover:cursor-pointer hover:text-blue-600">Blogs</Link>
-                    <Link to="/" className="relative leading-5 hover:cursor-pointer hover:text-blue-600">Help</Link>
+                    <Link to="/contact" className="relative leading-5 hover:cursor-pointer hover:text-blue-600">Contact Us</Link>
                 </nav>
 
                 {/* Right Side Icons */}
                 <div className="flex items-center gap-4">
-            {/* Shopping Cart */}
-            <div className="relative">
-                <Link to="/user/cart">
-                    <FaShoppingCart className="text-gray-800 cursor-pointer" />
-                </Link>
-            </div>
+                    {/* Shopping Cart */}
+                    <div className="relative">
+                        <Link to="/user/cart">
+                             <FaShoppingCart className="text-gray-800  " />
+                              <span className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full">0</span>
+                         </Link>
+                    </div>
 
-            {/* User Dropdown */}
-            <div className="relative inline-block text-left">
-            <div className="flex items-center gap-1 text-gray-800 cursor-pointer" onClick={toggleUserDropdown}>
-                <FaUser /> User
-            </div>
-            {userDropdown && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md z-50 sm:w-48 md:w-56 lg:w-64">
-                    <Link to="/user/login" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Login</Link>
-                    <Link to="/user/logout" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</Link>
+                    {/* User Dropdown */}
+                    <div className="relative inline-block text-left">
+                        <div className="flex items-center gap-1 text-gray-800 cursor-pointer" onClick={toggleUserDropdown}>
+                            <FaUser /> User
+                        </div>
+                        {userDropdown && (
+                            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                                <div className="py-1">
+                                    
+                                    <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Purchase Now Button */}
+                    <button className="relative px-3 py-1 border border-purple-500 text-purple-500 rounded-md hover:bg-purple-500 hover:text-white max-[600px]:hidden">
+                        Purchase Now
+                    </button>
                 </div>
-            )}
-        </div>
 
-            {/* Purchase Now Button */}
-            <button className="relative px-3 py-1 border border-purple-500 text-purple-500 rounded-md hover:bg-purple-500 hover:text-white max-[600px]:hidden">
-               Purchase Now
-           </button>
-        </div>
                 {/* Sidebar */}
                 <div className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-[1000] transform ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out md:hidden`}>
                     <div className="p-5 flex justify-between items-center border-b">
@@ -189,5 +186,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 

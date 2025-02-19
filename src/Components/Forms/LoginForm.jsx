@@ -1,118 +1,74 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 export const LoginForm = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    rememberMe: false,
-  });
-
+  const [formData, setFormData] = useState({ email: "", password: "", rememberMe: false });
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginFailed, setLoginFailed] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    setFormData(prev => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     setLoading(true);
-    setError("");
-    setSuccess("");
 
-    // Basic client-side validation
-    if (!formData.email) {
-      setError("Email is required");
-      setLoading(false);
-      return;
-    }
-    if (!formData.password) {
-      setError("Password is required");
-      setLoading(false);
-      return;
-    }
+    try {
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      
+      if (!response.ok) throw new Error(data.message || "Invalid credentials");
+      localStorage.setItem("token", data.token);
+      alert("Login successful!");
+      setFormData({ email: "", password: "", rememberMe: false });
 
-    // Simulating login request
-    setTimeout(() => {
+      setLoginFailed(false);
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+      setLoginFailed(true);
+    } finally {
       setLoading(false);
-      setSuccess("Login successful!");
-    }, 1500);
+    }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg"
-      >
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl font-semibold text-gray-900 text-center"
-        >
-          Login
-        </motion.h2>
-
-        {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
-        {success && <p className="text-green-500 text-sm text-center mt-2">{success}</p>}
-
-        <form className="mt-6" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700">Username or Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-            />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-md p-6 bg-white shadow-xl rounded-lg">
+        <h2 className="text-3xl font-bold text-center mb-2">Login</h2>
+        {error && <p className="text-red-600 text-center mb-2">{error}</p>}
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
+          <div className="relative">
+            <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full p-3 border rounded-lg pr-12" required />
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 text-gray-500">
+              {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+            </button>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-            />
-          </div>
-          <div className="flex justify-between items-center mb-4">
-            <label className="flex items-center text-gray-600">
-              <input
-                type="checkbox"
-                name="rememberMe"
-                checked={formData.rememberMe}
-                onChange={handleChange}
-                className="mr-2"
-              />
+          <div className="flex justify-between items-center">
+            <label className="flex items-center">
+              <input type="checkbox" name="rememberMe" checked={formData.rememberMe} onChange={handleChange} className="mr-2" />
               Remember me
             </label>
-            <a href="#" className="text-blue-500 hover:underline">
-              Lost your password?
-            </a>
+            {loginFailed && (
+              <button type="button" onClick={() => navigate("/forgot-password")} className="text-blue-600 hover:underline">
+                Forgot password?
+              </button>
+            )}
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            type="submit"
-            disabled={loading}
-            className={`w-full py-2 text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg transition-all ${
-              loading ? "opacity-70 cursor-not-allowed" : "hover:opacity-90"
-            }`}
-          >
+          <motion.button whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.97 }} type="submit" className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all">
             {loading ? "Logging in..." : "Log in"}
           </motion.button>
         </form>

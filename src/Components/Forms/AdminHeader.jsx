@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 export const AdminHeader = () => {
   return (
@@ -27,9 +28,9 @@ export const AdminHeader = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="mt-4 space-x-3"
       >
-        <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
+        <Link to="/" className="text-blue-600 font-semibold cursor-pointer hover:underline">
           Home
-        </span>
+        </Link>
         <span className="text-gray-400">  </span>
         <span className="text-gray-500 font-medium">Admin</span>
       </motion.p>
