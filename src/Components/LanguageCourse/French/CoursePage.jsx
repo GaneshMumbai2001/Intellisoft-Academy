@@ -50,6 +50,7 @@ const CoursePage = () => {
 
   const [showMore, setShowMore] = useState(false);
   const [expandedSections, setExpandedSections] = useState({});
+  const { addToCart } = useCart(); // Access the addToCart function from the context
 
   const toggleShowMore = () => setShowMore(!showMore);
   const toggleSection = (id) => {
@@ -125,7 +126,7 @@ const CoursePage = () => {
             <span className="text-gray-500 line-through">{courseDetails.originalPrice}</span>
             <span className="text-xl font-bold text-blue-600">{courseDetails.price}</span>
           </div>
-          <button className="w-full py-3 px-4 bg-purple-500 text-white rounded-lg hover:bg-purple-600 mb-2">Add to cart</button>
+          <button onClick={() => addToCart(course)}  className="w-full py-3 px-4 bg-purple-500 text-white rounded-lg hover:bg-purple-600 mb-2">Add to cart</button>
           <button className="w-full py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-100">Buy</button>
           <p className="mt-4 text-sm text-gray-600">30-Day Money-Back Guarantee</p>
           <div className="mt-4 text-sm text-gray-700">

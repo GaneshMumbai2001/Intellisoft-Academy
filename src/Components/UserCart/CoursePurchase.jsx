@@ -79,6 +79,16 @@ const initialCourses = [
     companyLogo: "https://via.placeholder.com/50",
     rating: 4.8,
   },
+  {
+    id: 1,
+    name: "React Mastery",
+    price: 4999,
+    description: "Learn React from scratch to advanced.",
+    thumbnail: "https://via.placeholder.com/300",
+    companyLogo: "https://via.placeholder.com/50",
+    rating: 4.8,
+  },
+  
 ];
 
 export default function CoursePurchase() {

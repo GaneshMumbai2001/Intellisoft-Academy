@@ -33,7 +33,7 @@ import Footer from "./Pages/Footer.jsx";
 import BackToTop from "./Components/UpwardArrow/BackToTop.jsx";
 import { Outlet, useNavigate, Route, Routes } from "react-router-dom"; // Updated import for useNavigate and Routes
 import ResetPassword from "./Components/Forms/ResetPassword.jsx"; // Ensure you import ResetPassword correctly
-
+import { CartProvider } from './Components/Course/CartContex.jsx';
 
 const API_BASE_URL = "http://localhost:5000/api";
 
@@ -236,8 +236,9 @@ function App() {
       <Routes>
         <Route path="/reset-password/:token" element={<ResetPassword handleResetPassword={handleResetPassword} />} />
       </Routes>
+      <CartProvider>
 
-      {/* <Demo/> */}
+       {/* <Demo/> */}
       {/* <Navbar /> */}
       <NavbarUpdate/>
       {/* <Nav/> */}
@@ -245,6 +246,7 @@ function App() {
       <BackToTop/>
       <Outlet />
       <Footer />
+    </CartProvider>
     </>
   );
 }

@@ -132,7 +132,7 @@ import ItalianCourses from "./Pages/ItalianCourses.jsx";
 import SpanishCourses from "./Pages/SpanishCourses.jsx";
 import JapaneseCourses from "./Pages/JapaneseCourses.jsx";
 // import BuyCart from "./Components/BuyCartSection/BuyCart.jsx";
-import CoursePurchase  from "./Components/UserCart/CoursePurchase.jsx";
+// import CoursePurchase  from "./Components/UserCart/CoursePurchase.jsx";
 import CourseDetail from "./Components/Course/CourseDetail.jsx";
 import PagesCourse1 from "./Components/PagesCourseCard/PageCourse1.jsx";
 import PagesCourse2 from "./Components/PagesCourseCard/PageCourse2.jsx";
@@ -182,7 +182,7 @@ const router = createBrowserRouter([
       {path: "Quantum/:id", element: <PagesCourse6/>},
       {path: "AllCourses/:id", element: <AllCourses/>},
       // { path: "/user/cart", element:<CoursePurchase /> },
-      {path:"/user/cart", element:<CoursePurchase />},
+      // {path:"/user/cart", element:<CoursePurchase />},
       // { path: "/signup/admin", element: <SignUpAdmin /> },
       // { path: "/signup/instructor", element: <SignUpInstructor /> },
       // { path: "/signup/user", element: <SignUpUser /> },
