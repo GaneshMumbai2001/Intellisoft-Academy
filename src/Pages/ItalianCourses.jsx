@@ -1,9 +1,9 @@
 import React from 'react';
-import CoursePage from '../Components/LanguageCourse/Italian/CoursePage'
-import ReactHeader from '../Components/LanguageCourse/Italian/ReactHeader'
-import CourseInfo from '../Components/LanguageCourse/Italian/CourseInfo';
-import MoreCourses from '../Components/LanguageCourse/Italian/MoreCourses'
-import RelatedCourses from '../Components/LanguageCourse/Italian/RelatedCourses'
+import CoursePage from '../Components/Cart/Italian/CoursePage'
+import ReactHeader from '../Components/Cart/Italian/ReactHeader'
+import CourseInfo from '../Components/Cart/Italian/CourseInfo';
+import MoreCourses from '../Components/Cart/Italian/MoreCourses'
+import RelatedCourses from '../Components/Cart/Italian/RelatedCourses'
 function ItalianCourses({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">

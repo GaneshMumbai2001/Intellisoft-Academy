@@ -33,7 +33,8 @@ import Footer from "./Pages/Footer.jsx";
 import BackToTop from "./Components/UpwardArrow/BackToTop.jsx";
 import { Outlet, useNavigate, Route, Routes } from "react-router-dom"; // Updated import for useNavigate and Routes
 import ResetPassword from "./Components/Forms/ResetPassword.jsx"; // Ensure you import ResetPassword correctly
-import { CartProvider } from './Components/Course/CartContex.jsx';
+// import { CartProvider } from './Components/Course/CartContex.jsx';
+import { CartProvider } from './Components/Cart/CartContex.jsx';
 
 const API_BASE_URL = "http://localhost:5000/api";
 

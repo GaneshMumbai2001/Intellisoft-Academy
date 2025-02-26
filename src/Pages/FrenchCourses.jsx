@@ -1,9 +1,9 @@
 import React from 'react';
-import CoursePage from '../Components/LanguageCourse/French/CoursePage'
-import ReactHeader from '../Components/LanguageCourse/French/ReactHeader'
-import CourseInfo from '../Components/LanguageCourse/French/CourseInfo';
-import MoreCourses from '../Components/LanguageCourse/French/MoreCourses'
-import RelatedCourses from '../Components/LanguageCourse/French/RelatedCourses'
+import CoursePage from '../Components/Cart/French/CoursePage'
+import ReactHeader from '../Components/Cart/French/ReactHeader'
+import CourseInfo from '../Components/Cart/French/CourseInfo';
+import MoreCourses from '../Components/Cart/French/MoreCourses'
+import RelatedCourses from '../Components/Cart/French/RelatedCourses'
 function LangC1({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">

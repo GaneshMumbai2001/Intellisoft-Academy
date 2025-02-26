@@ -307,9 +307,10 @@
 
 // export default CourseDetail;
 
+
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useCart } from '../Course/CartContex'; // Import the useCart hook
+import { useCart } from '../Cart/CartContex'; // Import the useCart hook
 import co1 from '/home/co1.png';
 import co2 from '/home/co2.png';
 import co3 from '/home/co3.png';
@@ -322,9 +323,9 @@ const courses = [
     id: 1,
     image: co1,
     title: 'Web Design',
-    description2:
-      'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
     description:
+      'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
+    description2:
       'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
     lessons: [
       "Let's learn Web App Application from scratch with projects",
@@ -356,9 +357,9 @@ const courses = [
     id: 2,
     image: co2,
     title: 'Personal Development',
-    description2:
+    description:
       'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
-    description: 'Mindset improvement and self-growth strategies.',
+    description2: 'Mindset improvement and self-growth strategies.',
     lessons: ['Developing a growth mindset', 'Time management techniques'],
     benefits: [
       'Improve self-confidence',
@@ -386,9 +387,9 @@ const courses = [
     id: 3,
     image: co3,
     title: 'IT and Software',
-    description2:
+    description:
       'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
-    description: 'Software development essentials and best practices.',
+    description2: 'Software development essentials and best practices.',
     lessons: ['Intro to software engineering', 'Version control with Git'],
     benefits: [
       'Understand software development lifecycle',
@@ -416,9 +417,9 @@ const courses = [
     id: 4,
     image: co4,
     title: 'Graphic Design',
-    description2:
+    description:
       'Creating stunning UI/UX designs for websites. Web App Application on a comprehensive React journey with our React Front To Back course.',
-    description: 'Unlock your creativity with essential design skills.',
+    description2: 'Unlock your creativity with essential design skills.',
     lessons: ['Fundamentals of design', 'Adobe Photoshop basics'],
     benefits: [
       'Learn essential design principles',
@@ -453,6 +454,7 @@ function CourseDetail() {
   const course = courses.find((c) => c.id === parseInt(id));
   const { addToCart } = useCart(); // Access the addToCart function from the context
 
+
   if (!course) {
     return <h2 className="text-center text-red-500 font-bold mt-10">Course not found!</h2>;
   }
@@ -479,6 +481,7 @@ function CourseDetail() {
           </div>
           <div className="mt-4 bg-gray-100 p-6 rounded-lg">
             <h2 className="text-2xl font-semibold">About Course</h2>
+            <p className="mt-2 text-gray-600">{course.description}</p>
             <p className="mt-2 text-gray-600">{course.description2}</p>
           </div>
           <div className="mt-6 bg-white shadow-lg p-4 rounded-lg">
@@ -541,7 +544,9 @@ function CourseDetail() {
           <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
             <CourseImage image={course.image} alt="" className="w-full rounded-lg object-cover mb-4" />
             {/* Pricing Section */}
+            <span className="text-gray-500 text-lg">{course.title}</span>
             <div className="flex justify-between items-center">
+           
               <span className="text-gray-500 line-through text-lg">{course.originalPrice}</span>
               <span className="text-xl font-bold text-blue-500">{course.price}</span>
             </div>
@@ -549,7 +554,7 @@ function CourseDetail() {
             {/* Buttons */}
             <button
               onClick={() => addToCart(course)} // Add course to cart
-              className="mt-4 w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg font-semibold"
+              className="mt-4 w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg font-semibold cursor-pointer"
             >
               Add to cart
             </button>
@@ -615,4 +620,3 @@ function CourseDetail() {
 }
 
 export default CourseDetail;
-

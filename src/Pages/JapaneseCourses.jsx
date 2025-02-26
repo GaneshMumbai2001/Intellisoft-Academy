@@ -1,9 +1,9 @@
 import React from 'react';
-import CoursePage from '../Components/LanguageCourse/Japanese/CoursePage'
-import ReactHeader from '../Components/LanguageCourse/Japanese/ReactHeader'
-import CourseInfo from '../Components/LanguageCourse/Japanese/CourseInfo';
-import MoreCourses from '../Components/LanguageCourse/Japanese/MoreCourses'
-import RelatedCourses from '../Components/LanguageCourse/Japanese/RelatedCourses'
+import CoursePage from '../Components/Cart/Japanese/CoursePage'
+import ReactHeader from '../Components/Cart/Japanese/ReactHeader'
+import CourseInfo from '../Components/Cart/Japanese/CourseInfo';
+import MoreCourses from '../Components/Cart/Japanese/MoreCourses'
+import RelatedCourses from '../Components/Cart/Japanese/RelatedCourses'
 function JapaneseCourses({ children }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">
