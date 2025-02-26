@@ -351,3 +351,136 @@ export const SignUpForm = () => {
     </div>
   );
 };
+
+// import { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { useNavigate } from "react-router-dom";
+// import { Eye, EyeOff } from "lucide-react";
+
+// export const SignUpForm = () => {
+//   const navigate = useNavigate();
+//   const [formData, setFormData] = useState({ firstname: "", lastname: "", mobile: "", email: "", password: "", confirmPassword: "" });
+//   const [errors, setErrors] = useState({});
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+//   const [showOtpModal, setShowOtpModal] = useState(false);
+//   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+//   const [otpError, setOtpError] = useState("");
+//   const [userId, setUserId] = useState(null);
+
+//   const validatePassword = (password) => /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/.test(password);
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({ ...prev, [name]: value }));
+
+//     if (name === "password") {
+//       setErrors((prev) => ({ ...prev, password: validatePassword(value) ? "" : "Password must be 8+ chars with 1 uppercase, 1 number, and 1 special char" }));
+//     } else if (name === "confirmPassword") {
+//       setErrors((prev) => ({ ...prev, confirmPassword: value === formData.password ? "" : "Passwords do not match" }));
+//     }
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!validatePassword(formData.password)) return;
+
+//     try {
+//       const response = await fetch("http://localhost:5000/api/signup", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(formData),
+//       });
+//       const data = await response.json();
+
+//       if (response.ok) {
+//         setShowOtpModal(true);
+//         setUserId(data.userId);
+//       } else {
+//         alert(data.message);
+//       }
+//     } catch (error) {
+//       console.error("Signup error:", error);
+//     }
+//   };
+
+//   const handleVerifyOtp = async () => {
+//     if (otp.join("").length !== 6) {
+//       setOtpError("Invalid OTP. Please enter all 6 digits.");
+//       return;
+//     }
+
+//     try {
+//       const response = await fetch("http://localhost:5000/api/verify-otp", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ userId, otp: otp.join("") }),
+//       });
+//       const data = await response.json();
+
+//       if (response.ok) {
+//         alert("OTP Verified! Redirecting to login...");
+//         navigate("/login");
+//       } else {
+//         setOtpError(data.message);
+//       }
+//     } catch (error) {
+//       console.error("OTP verification error:", error);
+//     }
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+//       <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
+//         <h2 className="text-3xl font-bold text-center mb-6">Sign Up</h2>
+//         <form className="space-y-4" onSubmit={handleSubmit}>
+//           {/* Form Fields */}
+//           <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleChange} className="w-full p-2 border rounded-lg" required />
+//           <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleChange} className="w-full p-2 border rounded-lg" required />
+//           <input type="text" name="mobile" placeholder="Mobile Number" value={formData.mobile} onChange={handleChange} className="w-full p-2 border rounded-lg" required />
+//           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded-lg" required />
+//           <div className="relative">
+//             <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full p-2 border rounded-lg pr-10" required />
+//             <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-2 text-gray-500">
+//               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+//             </button>
+//           </div>
+//           {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+//           <div className="relative">
+//             <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} className="w-full p-2 border rounded-lg pr-10" required />
+//             <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-2 text-gray-500">
+//               {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+//             </button>
+//           </div>
+//           {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+//           <motion.button whileHover={{ scale: 1.05 }} type="submit" className="w-full py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+//             Sign Up
+//           </motion.button>
+//         </form>
+//       </motion.div>
+
+//       {/* OTP Modal */}
+//       <AnimatePresence>
+//         {showOtpModal && (
+//           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+//             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
+//               <h3 className="text-xl font-bold text-center mb-4">Enter OTP</h3>
+//               <div className="flex justify-between my-4">
+//                 {otp.map((digit, index) => (
+//                   <input key={index} type="text" value={digit} onChange={(e) => handleOtpChange(index, e.target.value)} maxLength="1" className="w-10 h-10 text-center border rounded-lg" />
+//                 ))}
+//               </div>
+//               {otpError && <p className="text-red-500 text-sm text-center">{otpError}</p>}
+//               <motion.button whileHover={{ scale: 1.05 }} onClick={handleVerifyOtp} className="w-full py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+//                 Verify OTP
+//               </motion.button>
+//             </motion.div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </div>
+//   );
+// };
+
+
+
